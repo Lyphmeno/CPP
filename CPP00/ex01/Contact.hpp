@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.hpp                                        :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:18:33 by hlevi             #+#    #+#             */
-/*   Updated: 2022/04/12 13:15:22 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/01 15:47:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ class Contact
 		std::string get_phone();
 		std::string get_secret();
 		int	get_id();
-		void set_firstname(std::string);
-		void set_lastname(std::string);
-		void set_nickname(std::string);
-		void set_phone(std::string);
-		void set_secret(std::string);
-		int set_id(int);
+		void	set_firstname(std::string);
+		void	set_lastname(std::string);
+		void	set_nickname(std::string);
+		void	set_phone(std::string);
+		void	set_secret(std::string);
+		void	set_id(int);
 };
 #endif

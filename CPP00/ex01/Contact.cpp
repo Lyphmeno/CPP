@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:20:08 by hlevi             #+#    #+#             */
-/*   Updated: 2022/04/12 13:19:27 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/01 15:47:44 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::string Contact::get_phone() { return (this->_phone); }
 
 std::string Contact::get_secret() { return (this->_secret); }
 
-int		Contact::set_id(int	nb) {
+void	Contact::set_id(int	nb) {
 	this->_id = nb;
 }
 

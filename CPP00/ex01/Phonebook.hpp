@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:18:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/04/12 14:32:18 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/01 15:12:30 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@
 class	Phonebook
 {
 	private :
-		int		_nb;
 		int		_index;
-		Contact	*_contacts;
-
+		Contact	_contacts[8];
 	public	:
 		Phonebook();
 		void	fill(std::string, std::string, std::string, std::string, std::string);
 		void	set_contact();
-		void	show_index(int) const;
-		void	show_all() const;
+		void	show_index(int);
+		void	showone(int);
+		void	show_all();
 		std::string	trunc(std::string) const;
 };
 

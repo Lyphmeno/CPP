@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:14:06 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/01 15:56:48 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/02 14:55:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ Account::Account(int initial_deposit)
 	_totalAmount = getTotalAmount() + initial_deposit;
 	_nbAccounts = getNbAccounts() + 1;
 	this->_amount = initial_deposit;
-	this->_accountIndex = _nbAccounts--;
+	this->_accountIndex = _nbAccounts - 1;
 	this->_nbDeposits = 0;
 	this->_nbWithdrawals = 0;
 	_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex 
 		<< ";amount:" << this->_amount 
-		<< ";created:" << std::endl;
+		<< ";created" << std::endl;
 }
 
 Account::~Account(void)
@@ -39,7 +39,7 @@ Account::~Account(void)
 	_displayTimestamp();
 	std::cout << " index:" << this->_accountIndex 
 		<< ";amount:" << this->_amount 
-		<< ";created:" << std::endl;
+		<< ";closed" << std::endl;
 }
 
 void	Account::_displayTimestamp( void )
@@ -94,8 +94,8 @@ void	Account::displayAccountsInfos(void)
 void	Account::displayStatus(void) const
 {
 	_displayTimestamp();
-	std::cout << " accounts:" << this->_accountIndex 
-		<< ";total:" << this->_amount 
+	std::cout << " index:" << this->_accountIndex 
+		<< ";amount:" << this->_amount 
 		<< ";deposits:" << this->_nbDeposits
 		<< ";widthdrawals:" << this->_nbWithdrawals << std::endl;
 }
@@ -111,7 +111,7 @@ void	Account::makeDeposit(int deposit)
 		<< ";p_amount:" << this->_amount - deposit 
 		<< ";deposit:" << deposit 
 		<< ";amount:" << this->_amount
-		<< ";nb_deposit;" << this->_nbDeposits << std::endl;
+		<< ";nb_deposits;" << this->_nbDeposits << std::endl;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)

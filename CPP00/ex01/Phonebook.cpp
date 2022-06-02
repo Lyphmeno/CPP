@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:19:38 by hlevi             #+#    #+#             */
-/*   Updated: 2022/06/01 18:14:57 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/02 13:22:44 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,20 @@ void	Phonebook::fill(std::string fn, std::string ln, std::string nc, std::string
 void	Phonebook::set_contact()
 {
 	std::string fn, ln, nc, pn, ds;
-	std::cout << "first name = "; std::cin >> fn;
-	std::cout << "last name = "; std::cin >> ln;
-	std::cout << "nickname = "; std::cin >> nc;
-	std::cout << "phone number = "; std::cin >> pn;
-	std::cout << "darkest secret = "; std::cin >> ds;
+	std::cout << "first name = "; std::getline(std::cin, fn);
+	std::cout << "last name = "; std::getline(std::cin, ln);
+	std::cout << "nickname = "; std::getline(std::cin, nc);
+	std::cout << "phone number = "; std::getline(std::cin,pn);
+	std::cout << "darkest secret = "; std::getline(std::cin, ds);
 	fill(fn, ln, nc, pn, ds);
-	std::cout << nc << " was added in Phonebook" << std::endl; 
+	std::cout << nc << " was added in the phonebook" << std::endl; 
 }
 
 void	Phonebook::show_index(int i)
 {
-	if (i < 0 || i > 7)
+	if (i < 0 || i > 7 || this->_contacts[i].get_id() == -1)
 		std::cout << "The contact you're asking for does not exist" << std::endl;
-	else if (this->_contacts[i].get_id() != -1)
+	else
 	{
 		std::cout << this->_contacts[i].get_firstname() << std::endl;
 		std::cout << this->_contacts[i].get_lastname() << std::endl;
@@ -63,9 +63,9 @@ std::string	Phonebook::trunc(std::string str) const
 void	Phonebook::showone(int i)
 {
 	std::cout << std::setw(10) << this->_contacts[i].get_id() << "|";
-	std::cout << std::setw(10) << this->_contacts[i].get_firstname() << "|";
-	std::cout << std::setw(10) << this->_contacts[i].get_lastname() << "|";
-	std::cout << std::setw(10) << this->_contacts[i].get_nickname() << std::endl;
+	std::cout << std::setw(10) << trunc(this->_contacts[i].get_firstname()) << "|";
+	std::cout << std::setw(10) << trunc(this->_contacts[i].get_lastname()) << "|";
+	std::cout << std::setw(10) << trunc(this->_contacts[i].get_nickname()) << std::endl;
 }
 
 void	Phonebook::show_all()

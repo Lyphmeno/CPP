@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 13:19:38 by hlevi             #+#    #+#             */
-/*   Updated: 2022/06/02 13:22:44 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/03 14:56:14 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	Phonebook::set_contact()
 
 void	Phonebook::show_index(int i)
 {
-	if (i < 0 || i > 7 || this->_contacts[i].get_id() == -1)
+	if (this->_contacts[i].get_id() == -1)
 		std::cout << "The contact you're asking for does not exist" << std::endl;
 	else
 	{

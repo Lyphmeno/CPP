@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 13:55:02 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/02 15:22:46 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/03 17:13:46 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ int	main(void)
 {
 	// HumanA who has the weapon in his class
 	Weapon	club = Weapon("crude spiked club");
-	HumanA	bob("Bob", club);
-	bob.attack();
+	HumanA	Ed("Ed", club);
+	Ed.attack();
 	club.setType("some other type of club");
-	bob.attack();
+	Ed.attack();
 
 	// HumanB who needs to set a Weapon
 	Weapon	club2 = Weapon("crude spiked club");
-	HumanB	jim("Jim");
-	jim.setWeapon(club2);
-	jim.attack();
+	HumanB	Shaun("Shaun");
+	Shaun.attack();
+	Shaun.setWeapon(club2);
+	Shaun.attack();
 	club2.setType("some other type of club");
-	jim.attack();
+	Shaun.attack();
 }

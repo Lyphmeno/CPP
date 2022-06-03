@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 16:40:36 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/02 18:09:23 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/03 17:38:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	main(int argc, char **argv)
 	int				exit_code;
 
 	exit_code = 0;
-	newFile = argv[1];
-	newFile = newFile.append(".replace");
 	if (argc != 4)
 		exit_code = error_msg("Invalid number of arguments");
 	else
 	{
+		newFile = argv[1];
+		newFile = newFile.append(".replace");
 		oldWord = argv[2];
 		newWord = argv[3];
 		if (oldWord.empty())
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 			{
 				while (getline(myFile, tmpLine))
 				{
-					if ((index = tmpLine.find(oldWord, 0)) != std::string::npos)
+					while ((index = tmpLine.find(oldWord, 0)) != std::string::npos)
 					{
 						tmpLine.erase(index, oldWord.length());
 						if (!newWord.empty())
@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 				}
 			}
 			else
-				exit_code = error_msg("Unable to open first file");
+				exit_code = error_msg("Unable to open file");
 		}
 	}
 	return (exit_code);

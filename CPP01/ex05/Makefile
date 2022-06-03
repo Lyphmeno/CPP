@@ -1,9 +1,9 @@
 SRC		=	main.cpp\
-			Karen.cpp
+			Harl.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-NAME	=	Karen
+NAME	=	harlsComplain
 
 .PHONY:	all
 all:		$(NAME)

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:18:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/03 14:57:50 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/07 11:02:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-#define KAREN_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 # include <iostream>
 # include <string>
 
-enum	KarentFilters
+enum	HarltFilters
 {
 	DEBUG = 0,
 	INFO = 1,
@@ -23,7 +23,7 @@ enum	KarentFilters
 	ERROR = 3
 };
 
-class Karen
+class Harl
 {
 	private:
 		void	debug()
@@ -43,8 +43,8 @@ class Karen
 			std::cout << "[ERROR] This is unacceptable, I want to speak to the manager now?" << std::endl;
 		}
 	public:
-		Karen();
-		~Karen();
+		Harl();
+		~Harl();
 		void	complain(std::string level);
 };
 

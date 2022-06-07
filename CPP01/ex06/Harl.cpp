@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.cpp                                          :+:      :+:    :+:   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:20:07 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/03 15:01:32 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/07 11:02:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-Karen::Karen(void){}
+Harl::Harl(void){}
 
-Karen::~Karen(void){}
+Harl::~Harl(void){}
 
-typedef	void(Karen::*complainPtr)(void);
+typedef	void(Harl::*complainPtr)(void);
 
-void	Karen::complain(std::string level)
+void	Harl::complain(std::string level)
 {
 	int	i;
 	std::string	strArray[4]{

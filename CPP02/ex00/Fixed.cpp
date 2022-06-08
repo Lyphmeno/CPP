@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:12:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/09 14:34:46 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/07 12:02:55 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 	this->fpvalue = 0;
 }
 
@@ -31,8 +31,9 @@ Fixed::~Fixed()
 
 Fixed	&Fixed::operator=(const Fixed &fp)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->fpvalue = fp.getRawBits();
+	return (*this);
 }
 
 int	Fixed::getRawBits() const

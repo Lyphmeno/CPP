@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:12:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/04 18:10:36 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/08 12:56:54 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->fpvalue = 0;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fp)
@@ -36,41 +41,36 @@ Fixed::Fixed(float const floatoBin)
 	this->fpvalue = roundf(floatoBin *(1 << bitFraction));
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
 Fixed	&Fixed::operator=(const Fixed &fp)
 {
-	std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << std::endl;
 	this->fpvalue = fp.getRawBits();
 	return (*this);
 }
 
 int	Fixed::getRawBits() const
 {
-	//std::cout << "getRawBits member function called" << std::endl; not in exemple
+	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->fpvalue);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	//std::cout << "setRawBits member function called" << std::endl; not in exemple
+	//std::cout << "setRawBits member function called" << std::endl;
 	this->fpvalue = raw;
 }
 
-int		Fixed::toInt(void) const
+int		Fixed::toInt() const
 {
 	return (this->fpvalue / (1 << bitFraction));
 }
 
-float	Fixed::toFloat(void) const
+float	Fixed::toFloat() const
 {
 	return ((float)this->fpvalue / (float)(1 << bitFraction));
 }
 
-std::ostream & operator<<(std::ostream & res, const Fixed & fixed)
+std::ostream &operator<<(std::ostream &res, const Fixed &fixed)
 {
 	res << fixed.toFloat();
 	return (res);

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:13:38 by hlevi             #+#    #+#             */
-/*   Updated: 2022/02/04 18:08:46 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/06/08 12:53:59 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ class Fixed
 		static const int	bitFraction;
 	public:
 		Fixed();
+		~Fixed();
 		Fixed(const Fixed &fp);
 		Fixed(int const intoBin);
 		Fixed(float const floatoBin);
-		~Fixed();
-		Fixed	&operator = (const Fixed &fp);
+		Fixed	&operator=(const Fixed &fp);
 		int		getRawBits() const;
 		void	setRawBits(int const raw);
 		int		toInt() const;
 		float	toFloat() const;
 };
 
-std::ostream & operator<<(std::ostream & res, const Fixed & fixed);
+std::ostream &operator<<(std::ostream &res, const Fixed &fixed);
 
 #endif

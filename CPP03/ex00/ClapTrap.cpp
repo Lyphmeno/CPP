@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/11 16:32:15 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/11 17:16:43 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->ep > 0 && this->hp > 0)
 	{
-		std::cout << "ClapTrap" << this->name << "attacks" << target
+		std::cout << "ClapTrap" << this->name << "attacks" << amount
 			<< ", causing" << this->ad << "points of damages !" << std::endl;
 		this->ep--;
 	}

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 15:18:32 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/12 14:45:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "ClapTrap default constructor called" << std::endl; 
+	std::cout << "ClapTrap default constructor called" << std::endl;  
 	this->name = "Cl4p-Tp";
 	this->hp = 10;
 	this->ep = 10;

@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 14:50:06 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/12 16:28:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap()
+FragTrap::FragTrap()
 {
-	std::cout << "ScavTrap default constructor called" << std::endl;
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(20);
+	std::cout << "FragTrap default constructor called" << std::endl;
+	this->setHp(150);
+	this->setEp(100);
+	this->setAd(30);
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "ScavTrap default destructor called" << std::endl;
+	std::cout << "FragTrap default destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string newName)
+FragTrap::FragTrap(std::string newName)
 {
 	this->setName(newName);
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(20);
+	this->setHp(150);
+	this->setEp(100);
+	this->setAd(30);
 }
 
-ScavTrap::ScavTrap(const ScavTrap &trap)
+FragTrap::FragTrap(const FragTrap &trap)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
+	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = trap;
 }
 
-void	ScavTrap::guardGates()
+void	FragTrap::highFivesGuys()
 {
-	std::cout << this->getName() << " entered GateKeeper mode" << std::endl;
+	std::cout << this->getName() << " : GIVE ME FIVE !!!" << std::endl;
 }

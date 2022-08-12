@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 09:38:40 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/12 10:51:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-	std::cout << "Default constructor called" << std::endl;  
+	std::cout << "ClapTrap default constructor called" << std::endl;  
 	this->name = "Cl4p-Tp";
 	this->hp = 10;
 	this->ep = 10;
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string newName)
 {
-	std::cout << "Assignation constructor called" << std::endl;  
+	std::cout << "ClapTrap assignation constructor called" << std::endl;  
 	this->name = newName;
 	this->hp = 10;
 	this->ep = 10;
@@ -32,13 +32,13 @@ ClapTrap::ClapTrap(std::string newName)
 
 ClapTrap::ClapTrap(const ClapTrap &trap)
 {
-	std::cout << "Copy constructor called" << std::endl;  
+	std::cout << "ClapTrap copy constructor called" << std::endl;  
 	*this = trap;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default destructor called" << std::endl;  
+	std::cout << "ClapTrap default destructor called" << std::endl;  
 }
 
 ClapTrap	&ClapTrap::operator= (const ClapTrap &rhs)
@@ -68,6 +68,11 @@ int	ClapTrap::getEp() const
 int	ClapTrap::getAd() const
 {
 	return (this->ad);
+}
+
+void	ClapTrap::setName(std::string newName)
+{
+	this->name = newName;
 }
 
 void	ClapTrap::setHp(int newHp)

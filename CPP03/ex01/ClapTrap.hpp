@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:37 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/11 16:32:16 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/12 10:50:34 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class ClapTrap
 		int			getHp() const;
 		int			getEp() const;
 		int			getAd() const;
+		void		setName(std::string newName);
 		void		setHp(int newHp);
 		void		setEp(int newEp);
 		void		setAd(int newAd);

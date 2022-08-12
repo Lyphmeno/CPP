@@ -1,9 +1,10 @@
 SRC		=	main.cpp\
-			ClapTrap.cpp
+			ClapTrap.cpp\
+			ScavTrap.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-NAME	=	Cl4pTp
+NAME	=	Sc4vTp
 
 .PHONY:	all
 all:		$(NAME)

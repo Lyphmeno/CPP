@@ -6,21 +6,17 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:12:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/11 12:30:35 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:46:12 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+const int	Fixed::_stock = 8;
+
+Fixed::Fixed():_fpvalue(0)
 {
 	//std::cout << "Default constructor called" << std::endl;
-	this->fpvalue = 0;
-}
-
-Fixed::~Fixed()
-{
-	//std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fp)
@@ -29,28 +25,33 @@ Fixed::Fixed(const Fixed &fp)
 	*this = fp;
 }
 
-Fixed::Fixed(int const intoBin)
+Fixed::Fixed(const int nb)
 {
 	//std::cout << "Int constructor called" << std::endl;
-	this->fpvalue = intoBin * (1 << bitFraction);
+	this->_fpvalue = nb << this->_stock;
 }
 
-Fixed::Fixed(float const floatoBin)
+Fixed::Fixed(const float nb)
 {
 	//std::cout << "Float constructor called" << std::endl;
-	this->fpvalue = roundf(floatoBin *(1 << bitFraction));
+	this->_fpvalue = roundf(nb *(1 << this->_stock));
 }
 
-Fixed	&Fixed::operator= (const Fixed &rhs)
+Fixed::~Fixed()
+{
+	//std::cout << "Destructor called" << std::endl;
+}
+
+Fixed	&Fixed::operator = (const Fixed &fp)
 {
 	//std::cout << "Copy assignment operator called" << std::endl;
-	this->fpvalue = rhs.getRawBits();
+	this->_fpvalue = fp.getRawBits();
 	return (*this);
 }
 
 Fixed	&Fixed::operator++()
 {
-	fpvalue++;
+	_fpvalue++;
 	return (*this);
 }
 
@@ -64,7 +65,7 @@ Fixed	Fixed::operator++(int)
 
 Fixed	&Fixed::operator--()
 {
-	fpvalue--;
+	_fpvalue--;
 	return (*this);
 }
 
@@ -109,86 +110,86 @@ Fixed	Fixed::operator/ (const Fixed &rhs) const
 
 bool	Fixed::operator== (const Fixed &rhs) const
 {
-	return (this->fpvalue == rhs.fpvalue);
+	return (this->_fpvalue == rhs._fpvalue);
 }
 
 bool	Fixed::operator!= (const Fixed &rhs) const
 {
-	return (this->fpvalue != rhs.fpvalue);
+	return (this->_fpvalue != rhs._fpvalue);
 }
 
 bool	Fixed::operator<= (const Fixed &rhs) const
 {
-	return (this->fpvalue <= rhs.fpvalue);
+	return (this->_fpvalue <= rhs._fpvalue);
 }
 
 bool	Fixed::operator>= (const Fixed &rhs) const
 {
-	return (this->fpvalue >= rhs.fpvalue);
+	return (this->_fpvalue >= rhs._fpvalue);
 }
 
 bool	Fixed::operator< (const Fixed &rhs) const
 {
-	return (this->fpvalue < rhs.fpvalue);
+	return (this->_fpvalue < rhs._fpvalue);
 }
 
 bool	Fixed::operator> (const Fixed &rhs) const
 {
-	return (this->fpvalue > rhs.fpvalue);
+	return (this->_fpvalue > rhs._fpvalue);
 }
 
 int	Fixed::getRawBits() const
 {
 	//std::cout << "getRawBits member function called" << std::endl;
-	return (this->fpvalue);
+	return (this->_fpvalue);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	//std::cout << "setRawBits member function called" << std::endl;
-	this->fpvalue = raw;
+	this->_fpvalue = raw;
 }
 
 int		Fixed::toInt() const
 {
-	return (this->fpvalue / (1 << bitFraction));
+	return (this->_fpvalue / (1 << _stock));
 }
 
 float	Fixed::toFloat() const
 {
-	return ((float)this->fpvalue / (float)(1 << bitFraction));
+	return ((float)this->_fpvalue / (float)(1 << _stock));
 }
 
 Fixed Fixed::min(Fixed &fp1, Fixed &fp2)
 {
-	if (fp1.fpvalue > fp2.fpvalue)
+	if (fp1._fpvalue > fp2._fpvalue)
 		return (fp2);
 	return (fp1);
 }
 
 Fixed Fixed::min(const Fixed &fp1, const Fixed &fp2)
 {
-	if (fp1.fpvalue > fp2.fpvalue)
+	if (fp1._fpvalue > fp2._fpvalue)
 		return (fp2);
 	return (fp1);
 }
 
 Fixed Fixed::max(Fixed &fp1, Fixed &fp2)
 {
-	if (fp1.fpvalue < fp2.fpvalue)
+	if (fp1._fpvalue < fp2._fpvalue)
 		return (fp2);
 	return (fp1);
 }
 
 Fixed Fixed::max(const Fixed &fp1, const Fixed &fp2)
 {
-	if (fp1.fpvalue < fp2.fpvalue)
+	if (fp1._fpvalue < fp2._fpvalue)
 		return (fp2);
 	return (fp1);
 }
 
-std::ostream &operator << (std::ostream &res, const Fixed &fixed)
+std::ostream	&operator<<(std::ostream &val, const Fixed &fixed)
 {
-	res << fixed.toFloat();
-	return (res);
+	val << fixed.toFloat();
+	return (val);
 }

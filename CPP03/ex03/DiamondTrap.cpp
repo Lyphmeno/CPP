@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 17:12:13 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:11:41 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,9 @@ DiamondTrap::DiamondTrap(const DiamondTrap &trap)
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap default destructor called" << std::endl;
+}
+
+void	DiamondTrap::whoAmI()
+{
+	std::cout << *this << std::endl;
 }

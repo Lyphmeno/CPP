@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:13:38 by hlevi             #+#    #+#             */
-/*   Updated: 2022/07/28 14:32:51 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:24:21 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 class Fixed
 {
 	private:
-		int			fpvalue;
-		static int	stock;
+		int					_fpvalue;
+		const static int	_stock;
 	public:
 		Fixed();
 		Fixed(const Fixed &fp);

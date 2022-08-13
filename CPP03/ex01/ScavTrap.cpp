@@ -6,18 +6,31 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 14:50:06 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 10:58:56 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(20);
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_ad = 20;
+}
+
+ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
+{
+	std::cout << "ScavTrap assignation constructor called" << std::endl;
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_ad = 20;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &cpy): ClapTrap(cpy)
+{
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
 
 ScavTrap::~ScavTrap()
@@ -25,18 +38,25 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap default destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string newName)
+ScavTrap	&ScavTrap::operator= (const ScavTrap &rhs)
 {
-	this->setName(newName);
-	this->setHp(100);
-	this->setEp(50);
-	this->setAd(20);
+	this->_name = rhs.getName();
+	this->_hp = rhs.getHp();
+	this->_ep = rhs.getEp();
+	this->_ad = rhs.getAd();
+	return (*this);
 }
 
-ScavTrap::ScavTrap(const ScavTrap &trap)
+void	ScavTrap::attack(const std::string &target)
 {
-	std::cout << "ScavTrap copy constructor called" << std::endl;
-	*this = trap;
+	if (this->_ep > 0 && this->_hp > 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " attacks " << target
+			<< ", causing " << this->_ad << " points of damages !" << std::endl;
+		this->_ep--;
+	}
+	else
+		std::cout << this->_name << " is either dead or out of energy" << std::endl;
 }
 
 void	ScavTrap::guardGates()

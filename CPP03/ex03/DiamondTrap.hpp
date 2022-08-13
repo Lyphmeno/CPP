@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 17:12:12 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 13:39:06 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,12 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
-		std::string name;
 	public:
 		DiamondTrap();
 		DiamondTrap(std::string newName);
 		DiamondTrap(const DiamondTrap &trap);
 		~DiamondTrap();
-		void		whoAmI();
+		void	whoAmI();
 };
 
 #endif

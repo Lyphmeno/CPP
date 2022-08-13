@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 14:39:47 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 11:04:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string newName);
 		FragTrap(const FragTrap &trap);
 		~FragTrap();
+		FragTrap	&operator= (const FragTrap &rhs);
 		void	highFivesGuys();
 };
 

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:23:21 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 16:58:46 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 13:51:04 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,11 @@ int	main(void)
 	std::cout << std::endl;
 
 	std::cout << "DiamondTrap " << diamond.getName() << " just spawned" << std::endl;
-	std::cout << diamond.getName() << " has ->";
-	std::cout << "\t - " << diamond.getHp() << "Hp" << std::endl;
-	std::cout << "\t\t - " << diamond.getEp() << "Ep" << std::endl;
-	std::cout << "\t\t - " << diamond.getAd() << "Ad" << std::endl;
+	std::cout << diamond.getName() << " has :" << std::endl;
+	std::cout << "- " << diamond.getHp() << "Hp" << std::endl;
+	std::cout << "- " << diamond.getEp() << "Ep" << std::endl;
+	std::cout << "- " << diamond.getAd() << "Ad" << std::endl;
+	diamond.whoAmI();
 	std::cout << std::endl;
 	return (0);
 }

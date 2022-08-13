@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 15:29:53 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 13:45:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 #define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 	private:
 	public:
 		ScavTrap();
 		ScavTrap(std::string newName);
-		ScavTrap(const ScavTrap &trap);
+		ScavTrap(const ScavTrap &cpy);
 		~ScavTrap();
+		ScavTrap	&operator= (const ScavTrap &rhs);
+		void		setEp();
+		void		attack(const std::string &target);
 		void		guardGates();
 };
 

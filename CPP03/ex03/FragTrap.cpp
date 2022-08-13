@@ -6,18 +6,31 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 16:28:16 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 13:45:12 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap(): ClapTrap()
 {
 	std::cout << "FragTrap default constructor called" << std::endl;
-	this->setHp(150);
-	this->setEp(100);
-	this->setAd(30);
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_ad = 30;
+}
+
+FragTrap::FragTrap(std::string newName): ClapTrap(newName)
+{
+	std::cout << "FragTrap assignation constructor called" << std::endl;
+	this->_hp = 100;
+	this->_ep = 100;
+	this->_ad = 30;
+}
+
+FragTrap::FragTrap(const FragTrap &cpy): ClapTrap(cpy)
+{
+	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -25,18 +38,23 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap default destructor called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string newName)
+FragTrap	&FragTrap::operator= (const FragTrap &rhs)
 {
-	this->setName(newName);
-	this->setHp(150);
-	this->setEp(100);
-	this->setAd(30);
+	this->_name = rhs.getName();
+	this->_hp = rhs.getHp();
+	this->_ep = rhs.getEp();
+	this->_ad = rhs.getAd();
+	return (*this);
 }
 
-FragTrap::FragTrap(const FragTrap &trap)
+void	FragTrap::setHp()
 {
-	std::cout << "FragTrap copy constructor called" << std::endl;
-	*this = trap;
+	this->_hp = 100;
+}
+
+void	FragTrap::setAd()
+{
+	this->_ad = 30;
 }
 
 void	FragTrap::highFivesGuys()

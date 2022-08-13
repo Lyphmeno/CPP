@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 09:11:41 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 14:51:17 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ DiamondTrap::DiamondTrap()
 DiamondTrap::DiamondTrap(std::string newName)
 {
 	std::cout << "DiamondTrap assignation constructor called" << std::endl;
-	this->name = newName;
+	this->_name = newName;
+	this->ClapTrap::_name = newName + "_clap_name";
+	this->FragTrap::setHp();
+	this->ScavTrap::setEp();
+	this->FragTrap::setAd();
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &trap)
@@ -35,5 +39,6 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << *this << std::endl;
+	std::cout << "Diamond name is " << this->_name << std::endl;
+	std::cout << "ClapTrap name is " << this->ClapTrap::_name << std::endl;
 }

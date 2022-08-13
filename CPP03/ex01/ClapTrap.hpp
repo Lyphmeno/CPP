@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:37 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 10:50:34 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 11:25:57 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 class ClapTrap
 {
-	private:
-		std::string	name;
-		int			hp;
-		int			ep;
-		int			ad;
+	protected:
+		std::string	_name;
+		int			_hp;
+		int			_ep;
+		int			_ad;
 	public:
 		ClapTrap();
 		ClapTrap(std::string newName);
-		ClapTrap(const ClapTrap &trap);
-		~ClapTrap();
+		ClapTrap(const ClapTrap &cpy);
+		virtual	~ClapTrap();
 		ClapTrap	&operator= (const ClapTrap &rhs);
 		std::string getName() const;
 		int			getHp() const;

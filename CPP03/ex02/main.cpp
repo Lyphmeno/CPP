@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:23:21 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 14:54:33 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/13 11:05:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(void)
 	std::cout << std::endl;
 
 	std::cout << "FragTrap " << frag.getName() << " just spawned" << std::endl;
+	frag.takeDamage(37);
 	std::cout << frag.getName() << " has " << frag.getHp() << "Hp" << std::endl;
 	frag.highFivesGuys();
 

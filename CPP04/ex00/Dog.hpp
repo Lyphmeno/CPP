@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:25 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 16:43:19 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:44:53 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog : public Animal
 		Dog();
 		Dog(const Dog &cpy);
 		~Dog();
-		Dog	&operator= (const Dog &cpy);
+		Dog	&operator= (const Dog &rhs);
 };
 
 #endif

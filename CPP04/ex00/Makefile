@@ -1,12 +1,11 @@
 SRC		=	main.cpp\
-			ClapTrap.cpp\
-			FragTrap.cpp\
-			DiamondTrap.cpp\
-			ScavTrap.cpp
+			Animal.cpp\
+			Dog.cpp\
+			Cat.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
-FLAGS	=	-Wno-shadow -Wall -Wextra -Werror -std=c++98
-NAME	=	Di4mondTp
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
+NAME	=	Animal
 
 .PHONY:	all
 all:		$(NAME)

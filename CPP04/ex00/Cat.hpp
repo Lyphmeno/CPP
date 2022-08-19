@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:27 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 16:43:00 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:50:39 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cat : public Animal
 		Cat();
 		Cat(const Cat &cpy);
 		~Cat();
-		Cat	&operator= (const Cat &cpy);
+		Cat	&operator= (const Cat &rhs);
 };
 
 #endif

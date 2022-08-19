@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:26 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 16:43:59 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:49:05 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 Cat::Cat()
 {
 	std::cout << "Cat default constructor called" << std::endl;
+	this->_type = "Cat";
 }
 
 Cat::Cat(const Cat &cpy)
@@ -26,4 +27,10 @@ Cat::Cat(const Cat &cpy)
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
+}
+
+Cat	&Cat::operator=	(const Cat &rhs)
+{
+	this->_type = rhs._type;
+	return (*this);
 }

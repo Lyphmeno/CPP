@@ -6,13 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:41 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 18:54:24 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 19:04:44 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal():_type("Jerry")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
@@ -39,7 +39,7 @@ std::string	Animal::getType() const
 	return (this->_type);
 }
 
-void	Animal::makeSound()
+void	Animal::makeSound() const
 {
 	std::cout << this->_type << " : tf u want me to say ???" << std::endl;
 }

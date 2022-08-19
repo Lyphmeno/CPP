@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:37 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 11:26:04 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 16:22:39 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap
 		ClapTrap();
 		ClapTrap(std::string newName);
 		ClapTrap(const ClapTrap &cpy);
-		virtual	~ClapTrap();
+		~ClapTrap();
 		ClapTrap	&operator= (const ClapTrap &rhs);
 		std::string getName() const;
 		int			getHp() const;

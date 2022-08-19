@@ -6,13 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 13:45:50 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 16:46:39 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	this->_hp = 100;
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	this->_ad = 20;
 }
 
-ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
+ScavTrap::ScavTrap(std::string newName)
 {
 	std::cout << "ScavTrap assignation constructor called" << std::endl;
 	this->_hp = 100;
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
 	this->_ad = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &cpy): ClapTrap(cpy)
+ScavTrap::ScavTrap(const ScavTrap &cpy)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 }
@@ -40,16 +40,11 @@ ScavTrap::~ScavTrap()
 
 ScavTrap	&ScavTrap::operator= (const ScavTrap &rhs)
 {
-	this->_name = rhs.getName();
-	this->_hp = rhs.getHp();
-	this->_ep = rhs.getEp();
-	this->_ad = rhs.getAd();
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_ep = rhs._ep;
+	this->_ad = rhs._ad;
 	return (*this);
-}
-
-void	ScavTrap::setEp()
-{
-	this->_ep = 50;
 }
 
 void	ScavTrap::attack(const std::string &target)

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 10:53:42 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 16:55:12 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ ClapTrap::~ClapTrap()
 
 ClapTrap	&ClapTrap::operator= (const ClapTrap &rhs)
 {
-	this->_name = rhs.getName();
-	this->_hp = rhs.getHp();
-	this->_ep = rhs.getEp();
-	this->_ad = rhs.getAd();
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_ep = rhs._ep;
+	this->_ad = rhs._ad;
 	return (*this);
 }
 

@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 16:30:27 by hlevi            ###   ########.fr       */
+/*   Created: 2022/08/13 15:31:26 by hlevi             #+#    #+#             */
+/*   Updated: 2022/08/13 16:43:59 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-#include "ClapTrap.hpp"
+#include "Cat.hpp"
 
-class FragTrap : virtual public ClapTrap
+Cat::Cat()
 {
-	public:
-		FragTrap();
-		FragTrap(std::string newName);
-		FragTrap(const FragTrap &trap);
-		~FragTrap();
-		FragTrap	&operator= (const FragTrap &rhs);
-		void	highFivesGuys();
-};
+	std::cout << "Cat default constructor called" << std::endl;
+}
 
-#endif
+Cat::Cat(const Cat &cpy)
+{
+	std::cout << "Cat copy constructor called" << std::endl;
+	*this = cpy;
+}
+
+Cat::~Cat()
+{
+	std::cout << "Cat destructor called" << std::endl;
+}

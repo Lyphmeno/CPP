@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 16:30:27 by hlevi            ###   ########.fr       */
+/*   Created: 2022/08/13 15:31:41 by hlevi             #+#    #+#             */
+/*   Updated: 2022/08/13 16:03:56 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class FragTrap : virtual public ClapTrap
+Animal::Animal()
 {
-	public:
-		FragTrap();
-		FragTrap(std::string newName);
-		FragTrap(const FragTrap &trap);
-		~FragTrap();
-		FragTrap	&operator= (const FragTrap &rhs);
-		void	highFivesGuys();
-};
+	std::cout << "Animal default constructor called" << std::endl;
+}
 
-#endif
+Animal::Animal(const Animal &cpy)
+{
+	std::cout << "Animal copy constructor called" << std::endl;
+	*this = cpy;
+}
+
+Animal::~Animal()
+{
+	std::cout << "Animal destructor called" << std::endl;
+}

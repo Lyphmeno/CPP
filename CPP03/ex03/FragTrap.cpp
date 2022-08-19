@@ -6,29 +6,29 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 13:45:12 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/19 16:37:43 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap()
+FragTrap::FragTrap()
 {
 	std::cout << "FragTrap default constructor called" << std::endl;
-	this->_hp = 100;
+	this->_hp = 120;
 	this->_ep = 100;
 	this->_ad = 30;
 }
 
-FragTrap::FragTrap(std::string newName): ClapTrap(newName)
+FragTrap::FragTrap(std::string newName)
 {
 	std::cout << "FragTrap assignation constructor called" << std::endl;
-	this->_hp = 100;
+	this->_hp = 120;
 	this->_ep = 100;
 	this->_ad = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &cpy): ClapTrap(cpy)
+FragTrap::FragTrap(const FragTrap &cpy)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
 }
@@ -40,21 +40,11 @@ FragTrap::~FragTrap()
 
 FragTrap	&FragTrap::operator= (const FragTrap &rhs)
 {
-	this->_name = rhs.getName();
-	this->_hp = rhs.getHp();
-	this->_ep = rhs.getEp();
-	this->_ad = rhs.getAd();
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_ep = rhs._ep;
+	this->_ad = rhs._ad;
 	return (*this);
-}
-
-void	FragTrap::setHp()
-{
-	this->_hp = 100;
-}
-
-void	FragTrap::setAd()
-{
-	this->_ad = 30;
 }
 
 void	FragTrap::highFivesGuys()

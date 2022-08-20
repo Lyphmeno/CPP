@@ -1,9 +1,8 @@
 SRC		=	main.cpp\
+			Brain.cpp\
 			Animal.cpp\
-			WrongAnimal.cpp\
 			Dog.cpp\
-			Cat.cpp\
-			WrongCat.cpp
+			Cat.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98

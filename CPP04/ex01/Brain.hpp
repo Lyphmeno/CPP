@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 15:31:25 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 12:56:45 by hlevi            ###   ########.fr       */
+/*   Created: 2022/08/20 13:34:55 by hlevi             #+#    #+#             */
+/*   Updated: 2022/08/20 14:28:50 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Brain
 {
 	private:
+		std::string	_ideas[100];
 	public:
-		Dog();
-		Dog(const Dog &cpy);
-		~Dog();
-		Dog	&operator= (const Dog &rhs);
-
-		void		makeSound() const;
-};
+		Brain();
+		Brain(const Brain &cpy);
+		~Brain();
+		Brain &operator= (const Brain &rhs);
+		std::string	*operator[](const int index);
+};		

@@ -6,12 +6,11 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:27 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 18:50:39 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/20 12:56:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#pragma once
 
 #include "Animal.hpp"
 
@@ -23,6 +22,6 @@ class Cat : public Animal
 		Cat(const Cat &cpy);
 		~Cat();
 		Cat	&operator= (const Cat &rhs);
-};
 
-#endif
+		void		makeSound() const;
+};

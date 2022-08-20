@@ -6,12 +6,9 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:28 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 18:54:42 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:19:56 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
 
 #include <iostream>
 
@@ -28,5 +25,3 @@ class Animal
 		std::string	getType() const;
 		void		makeSound() const;
 };
-
-#endif

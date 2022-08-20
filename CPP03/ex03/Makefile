@@ -5,7 +5,7 @@ SRC		=	main.cpp\
 			ScavTrap.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
-FLAGS	=	-Wno-shadow -Wall -Wextra -Werror -std=c++98
+FLAGS	=	-Wall -Wextra -Werror -std=c++98
 NAME	=	Di4mondTp
 
 .PHONY:	all

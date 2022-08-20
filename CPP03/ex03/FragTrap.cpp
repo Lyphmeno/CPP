@@ -6,13 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 16:37:43 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/20 12:03:22 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap():ClapTrap()
 {
 	std::cout << "FragTrap default constructor called" << std::endl;
 	this->_hp = 120;
@@ -20,7 +20,7 @@ FragTrap::FragTrap()
 	this->_ad = 30;
 }
 
-FragTrap::FragTrap(std::string newName)
+FragTrap::FragTrap(const std::string &newName):ClapTrap(newName)
 {
 	std::cout << "FragTrap assignation constructor called" << std::endl;
 	this->_hp = 120;
@@ -28,9 +28,10 @@ FragTrap::FragTrap(std::string newName)
 	this->_ad = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &cpy)
+FragTrap::FragTrap(const FragTrap &cpy):ClapTrap(cpy._name)
 {
 	std::cout << "FragTrap copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 FragTrap::~FragTrap()

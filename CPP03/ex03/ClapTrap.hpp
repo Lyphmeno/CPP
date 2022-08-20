@@ -6,12 +6,12 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:37 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 16:22:39 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:59:35 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#pragma once
+
 #include <iostream>
 
 class ClapTrap
@@ -23,14 +23,14 @@ class ClapTrap
 		int			_ad;
 	public:
 		ClapTrap();
-		ClapTrap(std::string newName);
+		ClapTrap(const std::string &newName);
 		ClapTrap(const ClapTrap &cpy);
 		~ClapTrap();
 		ClapTrap	&operator= (const ClapTrap &rhs);
-		std::string getName() const;
-		int			getHp() const;
-		int			getEp() const;
-		int			getAd() const;
+		virtual std::string getName() const;
+		virtual int			getHp() const;
+		virtual int			getEp() const;
+		virtual int			getAd() const;
 		void		setName(std::string newName);
 		void		setHp(int newHp);
 		void		setEp(int newEp);
@@ -39,5 +39,3 @@ class ClapTrap
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 };
-
-#endif

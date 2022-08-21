@@ -1,13 +1,13 @@
 SRC		=	main.cpp\
 			AMateria.cpp\
-			ICharacter.cpp\
+			MateriaSource.cpp\
 			Character.cpp\
 			Cure.cpp\
 			Ice.cpp
 OBJ		=	$(SRC:.cpp=.o)
 CC		=	clang++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-NAME	=	AMateria
+NAME	=	Materia
 
 .PHONY:	all
 all:		$(NAME)

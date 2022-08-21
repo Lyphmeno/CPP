@@ -6,11 +6,12 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 13:15:38 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 15:52:04 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character() : _name("Unknown")
 {
@@ -49,13 +50,12 @@ Character::Character(const Character &cpy) : _name(cpy._name)
 		this->inventory[i] = cpy.inventory[i] ? cpy.inventory[i]->clone() : NULL;
 		i++;
 	}
-	*this = cpy;
 }
 
 Character::~Character()
 {
 	std::cout << "Character destructor called" << std::endl;
-	delete[] this->inventory;
+	delete[] *this->inventory;
 }
 
 Character &Character::operator=(const Character &rhs)
@@ -68,13 +68,12 @@ Character &Character::operator=(const Character &rhs)
 		if (this->inventory[i])
 			delete this->inventory[i];
 		this->inventory[i] = rhs.inventory[i] ? rhs.inventory[i]->clone() : NULL;
-		;
 		i++;
 	}
 	return (*this);
 }
 
-std::string const &Character::getName() const
+const std::string &Character::getName() const
 {
 	return (this->_name);
 }
@@ -98,7 +97,7 @@ void	Character::unequip(int idx)
 		this->inventory[idx] = NULL;
 }
 
-void	Character::use(int idx, Character &target)
+void	Character::use(int idx, ICharacter &target)
 {	
 	if (this->inventory[idx] && idx > 0 && idx < maxSlot)
 		this->inventory[idx]->use(target);

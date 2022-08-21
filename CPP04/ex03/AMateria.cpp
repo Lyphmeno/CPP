@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:52:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 12:29:57 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 16:15:10 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,3 @@ std::string const &AMateria::getType() const
 	return (this->type);
 }
 
-AMateria	*AMateria::clone() const
-{
-	std::cout << "Abstract member function for cloning" << std::endl;
-}
-
-void	AMateria::use(ICharacter &target)
-{
-	std::cout << "Abstract member function for using" << std::endl;
-}

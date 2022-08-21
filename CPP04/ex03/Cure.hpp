@@ -6,13 +6,14 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:52 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 12:07:48 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 15:54:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Cure : public AMateria
 {
@@ -27,6 +28,6 @@ class Cure : public AMateria
 
 		std::string	const&getType() const;
 
-		Cure	*clone() const;
-		void	use(ICharacter &target);
+		virtual Cure	*clone() const;
+		virtual void	use(ICharacter &target);
 };

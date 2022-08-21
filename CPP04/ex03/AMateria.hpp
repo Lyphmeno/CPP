@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:51:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 13:04:24 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 16:15:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class AMateria
 {
-	protected:
+	private:
 		std::string	type;
 	public:
 		AMateria();
@@ -29,5 +29,5 @@ class AMateria
 		std::string	const&getType() const;
 
 		virtual	AMateria	*clone() const = 0;
-		virtual	void		use(ICharacter &target);
+		virtual	void		use(ICharacter &target) = 0;
 };

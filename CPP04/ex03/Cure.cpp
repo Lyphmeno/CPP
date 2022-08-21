@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:45 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 12:13:12 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 15:43:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ std::string const &Cure::getType() const
 
 Cure	*Cure::clone() const
 {
-	std::cout << "Cure member function for cloning" << std::endl;
-	Cure	newCure;
-	return (&newCure);
-
+	return (new Cure());
 }
 
 void	Cure::use(ICharacter &target)

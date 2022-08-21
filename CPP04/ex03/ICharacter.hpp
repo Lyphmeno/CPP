@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:15 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 13:05:20 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/21 16:07:25 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 #include "AMateria.hpp"
 #include <iostream>
-
-class AMateria;
 
 class ICharacter
 {

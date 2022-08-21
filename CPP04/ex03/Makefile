@@ -5,7 +5,7 @@ SRC		=	main.cpp\
 			Cure.cpp\
 			Ice.cpp
 OBJ		=	$(SRC:.cpp=.o)
-CC		=	clang++
+CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 NAME	=	Materia
 

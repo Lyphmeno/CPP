@@ -3,7 +3,7 @@ SRC		=	main.cpp\
 			FragTrap.cpp\
 			ScavTrap.cpp
 OBJ		=	$(SRC:.cpp=.o)
-CC		=	clang++
+CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 NAME	=	Fr4gTp
 

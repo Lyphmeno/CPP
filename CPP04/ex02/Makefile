@@ -4,7 +4,7 @@ SRC		=	main.cpp\
 			Dog.cpp\
 			Cat.cpp
 OBJ		=	$(SRC:.cpp=.o)
-CC		=	clang++
+CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 NAME	=	Animal
 

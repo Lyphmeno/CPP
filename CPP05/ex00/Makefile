@@ -5,19 +5,19 @@ CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
 NAME	=	Bureaucrat
 
-.PHONY:	all
+.PHONY:		all
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) $(HEADER)
 			$(CC) $(OBJ) $(FLAGS) -o $(NAME)
 
 .PHONY:	clean
 clean:
-			$(RM) $(OBJ)
+			@$(RM) $(OBJ)
 
 .PHONY:	fclean
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
 
 .PHONY:	re
 re:			fclean all

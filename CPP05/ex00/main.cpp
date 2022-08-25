@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 16:30:39 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/25 17:09:23 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,23 @@
 
 int	main()
 {
+	Bureaucrat	frost("Nick", 1);
+	Bureaucrat	pegg("Simon", 150);
+	Bureaucrat	Ed("Shaun", 1000);
+
+	std::cout << std::endl << frost;
+	std::cout << pegg << std::endl;
+
+	frost.demote();
+	std::cout << frost;
+	std::cout << pegg << std::endl;
+	
+	pegg.demote();
+	std::cout << frost;
+	std::cout << pegg << std::endl;
+
+	pegg.promote();
+	std::cout << frost;
+	std::cout << pegg << std::endl;
 	return (0);
 }

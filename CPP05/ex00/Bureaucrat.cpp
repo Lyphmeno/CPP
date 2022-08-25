@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/25 17:07:54 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/25 17:57:04 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,23 @@ Bureaucrat::Bureaucrat():_name("John Doe"),_grade(150)
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade):_name(newName)
 {
 	std::cout << "Bureaucrat assignation constructor called" << std::endl;
-	if (newGrade < 1)
-		throw Bureaucrat::GradeTooHighException ();
-	else if (newGrade > 150)
-		throw Bureaucrat::GradeTooLowException ();
-	this->_grade = newGrade;
-	std::cout << "Bureaucrat assignation constructor succeeded" << std::endl;
+	try
+	{
+		if (newGrade < 1)
+			throw Bureaucrat::GradeTooHighException ();
+		else if (newGrade > 150)
+			throw Bureaucrat::GradeTooLowException ();
+		else
+		{
+			this->_grade = newGrade;
+			std::cout << "Bureaucrat assignation constructor succeeded" << std::endl;
+		}
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << " ERROR" << std ::endl;
+	}
 }
-
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 {

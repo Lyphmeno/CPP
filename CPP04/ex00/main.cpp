@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 13:16:46 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 16:15:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,19 @@ int main()
 	const WrongAnimal *beta = new WrongAnimal();
 	const WrongAnimal *k = new WrongCat();
 
-	std::cout << i->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << k->getType() << " " << std::endl;
+	std::cout << "\n" << i->getType() << std::endl;
+	std::cout << j->getType() << std::endl;
+	std::cout << k->getType() << "\n" << std::endl;
+
+	meta->makeSound();
 	i->makeSound();
 	j->makeSound();
-	k->makeSound();
-	meta->makeSound();
+	std::cout << std::endl;
+
 	beta->makeSound();
+	k->makeSound();
+	std::cout << std::endl;
+
 	delete(meta);
 	delete(i);
 	delete(j);

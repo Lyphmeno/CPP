@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 13:10:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 14:31:53 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 16:13:55 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ class WrongAnimal
 		WrongAnimal	&operator= (const WrongAnimal &rhs);
 
 		std::string		getType() const;
+
 		void	makeSound() const;
 };

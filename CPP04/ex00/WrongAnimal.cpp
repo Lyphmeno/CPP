@@ -6,13 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 13:11:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 13:24:26 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 16:10:26 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal():_type("Summer")
+WrongAnimal::WrongAnimal():_type("WrongAnimal")
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 }

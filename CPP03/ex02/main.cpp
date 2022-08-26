@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:23:21 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 11:05:42 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 12:38:17 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	ClapTrap	clap;
 	ClapTrap	trap("Kreig");
-	ScavTrap	scav("Lilith");
+	ScavTrap	scav("Tina");
 	FragTrap	frag("Mordecai");
 
 	std::cout << std::endl;
@@ -32,15 +32,18 @@ int	main(void)
 	clap.beRepaired(5);
 	std::cout << std::endl;
 
-	scav.setName("Sc4v");
+	scav.setName("Lilith");
 	std::cout << "ScavTrap " << scav.getName() << " just spawned" << std::endl;
 	std::cout << scav.getName() << " has " << scav.getHp() << "Hp" << std::endl;
 	scav.guardGates();
 	std::cout << std::endl;
 
 	std::cout << "FragTrap " << frag.getName() << " just spawned" << std::endl;
-	frag.takeDamage(37);
+	frag.takeDamage(99);
 	std::cout << frag.getName() << " has " << frag.getHp() << "Hp" << std::endl;
+	frag.attack("Lilith");
+	scav.takeDamage(30);
+	std::cout << scav.getName() << " has " << scav.getHp() << "Hp" << std::endl;
 	frag.highFivesGuys();
 
 	std::cout << std::endl;

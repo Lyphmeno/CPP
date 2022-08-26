@@ -6,22 +6,26 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 12:13:50 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 15:35:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap():ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "DiamondTrap default constructor called" << std::endl;
+	FragTrap::setHp();
+	ScavTrap::setEp();
+	FragTrap::setAd();
 }
 
 DiamondTrap::DiamondTrap(const std::string &newName):ClapTrap(newName + "_clap_name"), FragTrap(newName + "_frag_name"), ScavTrap(newName + "_scav_name"), _name(newName)
 {
 	std::cout << "DiamondTrap assignation constructor called" << std::endl;
-	std::cout << FragTrap::_hp << " | " << ScavTrap::_ep 
-	<< " | " << FragTrap::_ad << std::endl;
+	FragTrap::setHp();
+	ScavTrap::setEp();
+	FragTrap::setAd();
 	this->_hp = FragTrap::_hp;
 	this->_ep = ScavTrap::_ep;
 	this->_ad = FragTrap::_ad;

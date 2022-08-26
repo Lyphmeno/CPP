@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:23:21 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/12 14:56:25 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 12:09:19 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	ClapTrap	clap;
 	ClapTrap	trap("Kreig");
-	ScavTrap	scav("Lilith");
+	ScavTrap	scav("Tina");
 
 	std::cout << std::endl;
 	std::cout << "First one name is " << clap.getName() << std::endl;
@@ -30,7 +30,7 @@ int	main(void)
 	clap.beRepaired(5);
 	std::cout << std::endl;
 
-	scav.setName("Sc4v");
+	scav.setName("Lilith");
 	std::cout << "ScavTrap " << scav.getName() << " just spawned" << std::endl;
 	std::cout << scav.getName() << " has " << scav.getHp() << "Hp" << std::endl;
 	scav.guardGates();

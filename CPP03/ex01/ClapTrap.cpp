@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 14:23:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 10:53:42 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 11:39:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap():_name("Cl4p-Tp"),_hp(10),_ep(10),_ad(0)
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string newName):_name(newName),_hp(10),_ep(10),_ad(0)
+ClapTrap::ClapTrap(const std::string &newName):_name(newName),_hp(10),_ep(10),_ad(0)
 {
 	std::cout << "ClapTrap assignation constructor called" << std::endl;
 }
@@ -35,10 +35,10 @@ ClapTrap::~ClapTrap()
 
 ClapTrap	&ClapTrap::operator= (const ClapTrap &rhs)
 {
-	this->_name = rhs.getName();
-	this->_hp = rhs.getHp();
-	this->_ep = rhs.getEp();
-	this->_ad = rhs.getAd();
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_ep = rhs._ep;
+	this->_ad = rhs._ad;
 	return (*this);
 }
 

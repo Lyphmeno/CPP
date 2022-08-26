@@ -1,24 +1,24 @@
-SRC		=	main.cpp\
-			ClapTrap.cpp\
-			ScavTrap.cpp
-OBJ		=	$(SRC:.cpp=.o)
+NAME	=	Sc4vTrap
+SRC		=	$(shell find . -type f -name "*.cpp")
+HEADERS	=	$(shell find . -type f -name "*.hpp")
+OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
+
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-NAME	=	Sc4vTp
 
 .PHONY:	all
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-			$(CC) $(OBJ) $(FLAGS) -o $(NAME)
+$(NAME):	$(OBJ) $(HEADERS)
+			@$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 .PHONY:	clean
 clean:
-			$(RM) $(OBJ)
+			@$(RM) $(OBJ)
 
 .PHONY:	fclean
 fclean:		clean
-			$(RM) $(NAME)
+			@$(RM) $(NAME)
 
 .PHONY:	re
 re:			fclean all

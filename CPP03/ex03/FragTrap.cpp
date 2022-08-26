@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 12:03:22 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 15:36:17 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,21 @@ FragTrap	&FragTrap::operator= (const FragTrap &rhs)
 	this->_ep = rhs._ep;
 	this->_ad = rhs._ad;
 	return (*this);
+}
+
+void	FragTrap::setHp()
+{
+	this->_hp = 120;
+}
+
+void	FragTrap::setEp()
+{
+	this->_ep = 100;
+}
+
+void	FragTrap::setAd()
+{
+	this->_ad = 30;
 }
 
 void	FragTrap::highFivesGuys()

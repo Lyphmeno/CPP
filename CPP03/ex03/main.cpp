@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 09:23:21 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 11:42:29 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 15:37:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 	ScavTrap	scav("Lilith");
 	FragTrap	frag("Mordecai");
 	DiamondTrap	diamond("Athena");
+	DiamondTrap	test;
 
 	std::cout << std::endl;
 	std::cout << "ClapTrap " << clap.getName() << " just spawned" << std::endl;
@@ -59,7 +60,10 @@ int	main(void)
 	std::cout << "- " << diamond.getHp() << "Hp" << std::endl;
 	std::cout << "- " << diamond.getEp() << "Ep" << std::endl;
 	std::cout << "- " << diamond.getAd() << "Ad" << std::endl;
+	diamond.attack("TestTrap");
 	diamond.whoAmI();
+	diamond.guardGates();
+	diamond.highFivesGuys();
 	std::cout << std::endl;
 	return (0);
 }

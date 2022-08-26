@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 11:36:26 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 15:35:02 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,21 @@ ScavTrap	&ScavTrap::operator= (const ScavTrap &rhs)
 	this->_ep = rhs._ep;
 	this->_ad = rhs._ad;
 	return (*this);
+}
+
+void	ScavTrap::setHp()
+{
+	this->_hp = 100;
+}
+
+void	ScavTrap::setEp()
+{
+	this->_ep = 50;
+}
+
+void	ScavTrap::setAd()
+{
+	this->_ad = 20;
 }
 
 void	ScavTrap::attack(const std::string &target)

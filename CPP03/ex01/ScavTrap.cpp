@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:25:09 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/13 10:58:56 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 12:25:40 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	this->_ad = 20;
 }
 
-ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
+ScavTrap::ScavTrap(const std::string &newName): ClapTrap(newName)
 {
 	std::cout << "ScavTrap assignation constructor called" << std::endl;
 	this->_hp = 100;
@@ -40,10 +40,10 @@ ScavTrap::~ScavTrap()
 
 ScavTrap	&ScavTrap::operator= (const ScavTrap &rhs)
 {
-	this->_name = rhs.getName();
-	this->_hp = rhs.getHp();
-	this->_ep = rhs.getEp();
-	this->_ad = rhs.getAd();
+	this->_name = rhs._name;
+	this->_hp = rhs._hp;
+	this->_ep = rhs._ep;
+	this->_ad = rhs._ad;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 10:21:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 11:36:36 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/26 15:31:34 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ class ScavTrap : virtual public ClapTrap
 		ScavTrap();
 		ScavTrap(const std::string &newName);
 		ScavTrap(const ScavTrap &cpy);
-		~ScavTrap();
+		virtual	~ScavTrap();
 		ScavTrap	&operator= (const ScavTrap &rhs);
+
+		virtual void		setHp();
+		virtual void		setEp();
+		virtual void		setAd();
+
 		void		attack(const std::string &target);
 		void		guardGates();
 };

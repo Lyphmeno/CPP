@@ -9,7 +9,7 @@ FLAGS	=	-Wall -Wextra -Werror -std=c++98
 .PHONY:	all
 all:		$(NAME)
 
-$(NAME):	$(OBJ) $(HEADERS)
+$(NAME):	$(OBJ) $(HEADERS) Makefile
 			@$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 .PHONY:	clean

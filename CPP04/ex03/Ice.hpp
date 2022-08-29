@@ -6,14 +6,14 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 15:54:11 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 15:39:46 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <iostream>
 #include "AMateria.hpp"
-#include "ICharacter.hpp"
 
 class Ice : public AMateria
 {

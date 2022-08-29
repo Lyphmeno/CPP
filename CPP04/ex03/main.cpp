@@ -6,14 +6,18 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:54:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 16:05:05 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 15:29:06 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "ICharacter.hpp"
 #include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
 
 int main()
 {

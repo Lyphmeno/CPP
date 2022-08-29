@@ -6,12 +6,11 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 15:52:04 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 15:28:39 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include "AMateria.hpp"
 
 Character::Character() : _name("Unknown")
 {

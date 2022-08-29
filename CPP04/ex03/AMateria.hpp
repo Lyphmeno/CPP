@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:51:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 16:15:07 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 16:17:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
+class ICharacter;
+
 class AMateria
 {
 	private:
-		std::string	type;
+		std::string _type;
 	public:
 		AMateria();
 		AMateria(std::string const &type);
 		AMateria(const AMateria &cpy);
-		virtual	~AMateria() = 0;
-		AMateria	&operator=(const AMateria &rhs);
+		virtual ~AMateria() = 0;
+		AMateria &operator=(const AMateria &rhs);
 
-		std::string	const&getType() const;
+		std::string const &getType() const;
 
-		virtual	AMateria	*clone() const = 0;
-		virtual	void		use(ICharacter &target) = 0;
+		virtual AMateria *clone() const = 0;
+		virtual void use(ICharacter &target) = 0;
 };

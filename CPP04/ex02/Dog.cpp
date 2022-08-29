@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:39 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 14:26:26 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 11:02:47 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Dog	&Dog::operator=	(const Dog &rhs)
 	*this->_brainPtr = *rhs._brainPtr;
 	this->_type = rhs._type;
 	return (*this);
+}
+
+Brain	&Dog::getBrain()
+{
+	return (*this->_brainPtr);
 }
 
 void	Dog::makeSound() const

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:41 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/19 19:04:44 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 11:03:10 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,4 @@ Animal	&Animal::operator=	(const Animal &rhs)
 std::string	Animal::getType() const
 {
 	return (this->_type);
-}
-
-void	Animal::makeSound() const
-{
-	std::cout << this->_type << " : tf u want me to say ???" << std::endl;
 }

@@ -6,13 +6,15 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:28 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 14:31:00 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 11:08:43 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+class Brain;
 
 class Animal
 {
@@ -25,5 +27,7 @@ class Animal
 		Animal	&operator= (const Animal &rhs);
 
 		std::string		getType() const;
-		virtual void	makeSound() const;
+		virtual	Brain	&getBrain() = 0;
+
+		virtual void	makeSound() const = 0;
 };

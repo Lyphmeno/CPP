@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:26 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 14:26:21 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 10:43:06 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ Cat	&Cat::operator=	(const Cat &rhs)
 	*this->_brainPtr = *rhs._brainPtr;
 	this->_type = rhs._type;
 	return (*this);
+}
+
+Brain	&Cat::getBrain()
+{
+	return (*this->_brainPtr);
 }
 
 void	Cat::makeSound() const

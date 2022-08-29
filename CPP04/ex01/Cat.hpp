@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:27 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/20 14:19:45 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 11:04:00 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Cat : public Animal
 		Cat(const Cat &cpy);
 		~Cat();
 		Cat	&operator= (const Cat &rhs);
+
+		Brain	&getBrain();
 
 		void		makeSound() const;
 };

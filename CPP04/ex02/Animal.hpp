@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 15:31:28 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/21 09:38:56 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/29 11:21:44 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 #include <iostream>
 
+class Brain;
+
 class Animal
 {
 	protected:
 		std::string	_type;
-	public:
 		Animal();
+	public:
 		Animal(const Animal &cpy);
 		virtual	~Animal() = 0;
 		Animal	&operator= (const Animal &rhs);
 
 		std::string		getType() const;
+		virtual	Brain	&getBrain() = 0;
+
 		virtual void	makeSound() const = 0;
 };

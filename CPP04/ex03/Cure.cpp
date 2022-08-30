@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:45 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:55:16 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 10:37:31 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ Cure::~Cure()
 
 Cure	&Cure::operator=	(const Cure &rhs)
 {
-	this->type = rhs.type;
+	this->_type = rhs._type;
 	return (*this);
 }
 
 std::string const &Cure::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 Cure	*Cure::clone() const

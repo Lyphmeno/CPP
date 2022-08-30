@@ -6,16 +6,20 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:39:14 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 11:03:35 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 #define maxSlot 4
+
+class Character;
 
 class Character: public ICharacter
 {
@@ -35,3 +39,5 @@ class Character: public ICharacter
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
 };
+
+#endif

@@ -6,75 +6,32 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:54:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:29:06 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 11:05:38 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
-#include "ICharacter.hpp"
 #include "MateriaSource.hpp"
-#include "IMateriaSource.hpp"
 
 int main()
 {
-	IMateriaSource	*src = new MateriaSource();
-	AMateria	*tmp;
-	tmp = new Ice();
-	src->learnMateria(tmp);
-	src->learnMateria(tmp);
-	delete tmp;
-	tmp = new Cure();
-	src->learnMateria(tmp);
-	src->learnMateria(tmp);
-	src->learnMateria(tmp);
-	delete tmp;
-	tmp = NULL;
-
-	IMateriaSource	*srcCpy = new MateriaSource(*(reinterpret_cast<MateriaSource *>(src)));
-	tmp = srcCpy->createMateria("cure");
-	delete tmp;
-	delete srcCpy;
-
-	Character	*me = new Character("me");
-	me->equip(src->createMateria("ice"));
-	me->equip(src->createMateria("ice"));
-	me->equip(src->createMateria("ice"));
-	tmp = src->createMateria("cure");
+	IMateriaSource *src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter *me = new Character("me");
+	AMateria *tmp;
+	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	delete tmp;
-
-	Character	*bob = new Character("bob");
-	me->use(-1, *bob);
+	ICharacter *bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	me->use(2, *bob);
-	me->use(3, *bob);
-	me->use(4, *bob);
-
-	Character	*cpy = new Character (*me);
-	cpy->use(-1, *bob);
-	cpy->use(0, *bob);
-	cpy->use(1, *bob);
-	cpy->use(2, *bob);
-	cpy->use(3, *bob);
-	cpy->use(4, *bob);
-
-	*cpy = *bob;
-	cpy->use(-1, *bob);
-	cpy->use(0, *bob);
-	cpy->use(1, *bob);
-	cpy->use(2, *bob);
-	cpy->use(3, *bob);
-	cpy->use(4, *bob);
-	delete cpy;
 	delete bob;
 	delete me;
 	delete src;
-	return (0);
+	return 0;
 }

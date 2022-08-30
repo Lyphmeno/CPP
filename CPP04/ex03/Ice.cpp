@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:50 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:55:13 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 10:37:25 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ Ice::~Ice()
 
 Ice	&Ice::operator=	(const Ice &rhs)
 {
-	this->type = rhs.type;
+	this->_type = rhs._type;
 	return (*this);
 }
 
 std::string const &Ice::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 Ice	*Ice::clone() const

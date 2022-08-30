@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/25 17:11:29 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 12:12:38 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &cpy);
 		~Bureaucrat();
 		Bureaucrat	&operator= (const Bureaucrat &rhs);
+
 		Bureaucrat	&operator-- ();
 		Bureaucrat	operator-- (int);
 		Bureaucrat	&operator++ ();
@@ -39,19 +40,13 @@ class Bureaucrat
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char	*what() const throw() 
-				{
-					return ("GradeTooLow");
-				}
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char	*what() const throw()
-				{
-					return ("GradeTooHigh");
-				}
+				virtual const char* what() const throw();
 		};
 };
 

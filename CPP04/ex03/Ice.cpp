@@ -6,20 +6,15 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:50 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 10:37:25 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 15:27:31 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice():AMateria()
+Ice::Ice() : AMateria("ice")
 {
 	std::cout << "Ice default constructor called" << std::endl;
-}
-
-Ice::Ice(std::string const &type):AMateria("ice")
-{
-	std::cout << "Ice assignation constructor called" << std::endl;
 }
 
 Ice::Ice(const Ice &cpy)
@@ -33,23 +28,18 @@ Ice::~Ice()
 	std::cout << "Ice destructor called" << std::endl;
 }
 
-Ice	&Ice::operator=	(const Ice &rhs)
+Ice &Ice::operator=(const Ice &rhs)
 {
-	this->_type = rhs._type;
+	(void)rhs;
 	return (*this);
 }
 
-std::string const &Ice::getType() const
+Ice *Ice::clone() const
 {
-	return (this->_type);
+	return (new Ice(*this));
 }
 
-Ice	*Ice::clone() const
-{
-	return (new Ice());
-}
-
-void	Ice::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

@@ -1,15 +1,16 @@
-SRC		=	main.cpp\
-			Bureaucrat.cpp
-OBJ		=	$(SRC:.cpp=.o)
+NAME	=	Bureaucrat
+SRC		=	$(shell find . -type f -name "*.cpp")
+HEADERS	=	$(shell find . -type f -name "*.hpp")
+OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
+
 CC		=	c++
 FLAGS	=	-Wall -Wextra -Werror -std=c++98
-NAME	=	Bureaucrat
 
-.PHONY:		all
+.PHONY:	all
 all:		$(NAME)
 
-$(NAME):	$(OBJ) $(HEADER)
-			$(CC) $(OBJ) $(FLAGS) -o $(NAME)
+$(NAME):	$(OBJ) $(HEADERS) Makefile
+			@$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 .PHONY:	clean
 clean:

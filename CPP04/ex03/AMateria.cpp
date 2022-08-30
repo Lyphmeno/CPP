@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:52:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:55:19 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 15:00:01 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,15 @@ AMateria::AMateria(const AMateria &cpy)
 	*this = cpy;
 }
 
+AMateria::~AMateria()
+{
+	std::cout << "AMateria destructor called" << std::endl;
+}
+
 AMateria	&AMateria::operator=	(const AMateria &rhs)
 {
-	this->_type = rhs._type;
+	if (this != &rhs)
+		this->_type = rhs._type;
 	return (*this);
 }
 

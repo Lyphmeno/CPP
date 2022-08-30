@@ -6,32 +6,46 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/25 17:42:30 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 13:08:27 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int	main()
+int main()
 {
-	Bureaucrat	frost("Nick", 1);
-	Bureaucrat	pegg("Simon", 150);
-	Bureaucrat	Ed("Shaun", 0);
+	Bureaucrat *Ed;
+	Bureaucrat *frost = new Bureaucrat("Nick", 1);
+	Bureaucrat *pegg = new Bureaucrat("Simon", 150);
 
-	std::cout << std::endl << frost;
-	std::cout << Ed;
-	std::cout << pegg << std::endl;
-
-	frost.demote();
-	std::cout << frost;
-	std::cout << pegg << std::endl;
+	try
+	{
+		Ed = new Bureaucrat("Shaun", 0);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		delete Ed;
+	}
 	
-	pegg.demote();
-	std::cout << frost;
-	std::cout << pegg << std::endl;
 
-	pegg.promote();
-	std::cout << frost;
-	std::cout << pegg << std::endl;
+	std::cout << std::endl;
+	std::cout << *frost;
+	std::cout << *pegg << std::endl;
+
+	frost->demote();
+	std::cout << *frost;
+	std::cout << *pegg << std::endl;
+
+	pegg->demote();
+	std::cout << *frost;
+	std::cout << *pegg << std::endl;
+
+	pegg->promote();
+	std::cout << *frost;
+	std::cout << *pegg << std::endl;
+
+	delete frost;
+	delete pegg;
 	return (0);
 }

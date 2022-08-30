@@ -6,16 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:15 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 11:11:13 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 14:34:28 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
-
-#include <iostream>
-
-class ICharacter;
+#include "AMateria.hpp"
 class AMateria;
 
 class ICharacter

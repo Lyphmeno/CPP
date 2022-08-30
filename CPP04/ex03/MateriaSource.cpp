@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 10:54:12 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 15:30:01 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource default constructor called" << std::endl;
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		this->mSource[i] = NULL;
+		this->_inventory[i] = NULL;
 		i++;
 	}
 }
@@ -28,70 +28,74 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource &cpy)
 {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		mSource[i] = (cpy.mSource[i]) ? cpy.mSource[i]->clone() : NULL;
+		_inventory[i] = (cpy._inventory[i]) ? cpy._inventory[i]->clone() : NULL;
 		i++;
 	}
 }
 
-MateriaSource::~MateriaSource(void)
+MateriaSource::~MateriaSource()
 {
 	std::cout << "MateriaSource destructor called" << std::endl;
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		if (this->mSource[i])
-			delete this->mSource[i];
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 		i++;
 	}
 }
 
-MateriaSource	&MateriaSource::operator=(const MateriaSource &rhs)
+MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		if (this->mSource[i])
-			delete this->mSource[i];
-		this->mSource[i] = (rhs.mSource[i]) ? rhs.mSource[i]->clone() : NULL;
+		if (_inventory[i])
+			delete _inventory[i];
+		if (rhs._inventory[i])
+			_inventory[i] = rhs._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 		i++;
 	}
 	return (*this);
 }
 
-void		MateriaSource::learnMateria(AMateria *materia)
+void MateriaSource::learnMateria(AMateria *materia)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		if (!this->mSource[i])
+		if (!this->_inventory[i])
 		{
-			this->mSource[i] = materia->clone();
-			return ;
+			this->_inventory[i] = materia;
+			return;
 		}
 		i++;
 	}
+	delete (materia);
 }
 
-AMateria	*MateriaSource::createMateria(const std::string &type)
+AMateria *MateriaSource::createMateria(const std::string &type)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i < slot)
+	while (i < _slot)
 	{
-		if (this->mSource[i]->getType() == type)
-			return (this->mSource[i]->clone());
+		if (this->_inventory[i]->getType() == type && _inventory[i] != NULL)
+			return (this->_inventory[i]->clone());
 		i++;
 	}
 	return (NULL);

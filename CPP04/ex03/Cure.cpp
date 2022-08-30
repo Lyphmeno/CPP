@@ -6,20 +6,15 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:45 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 10:37:31 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 15:27:08 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure():AMateria()
+Cure::Cure() : AMateria("cure")
 {
 	std::cout << "Cure default constructor called" << std::endl;
-}
-
-Cure::Cure(std::string const &type):AMateria("cure")
-{
-	std::cout << "Cure assignation constructor called" << std::endl;
 }
 
 Cure::Cure(const Cure &cpy)
@@ -33,23 +28,18 @@ Cure::~Cure()
 	std::cout << "Cure destructor called" << std::endl;
 }
 
-Cure	&Cure::operator=	(const Cure &rhs)
+Cure &Cure::operator=(const Cure &rhs)
 {
-	this->_type = rhs._type;
+	(void)rhs;
 	return (*this);
 }
 
-std::string const &Cure::getType() const
+Cure *Cure::clone() const
 {
-	return (this->_type);
+	return (new Cure(*this));
 }
 
-Cure	*Cure::clone() const
-{
-	return (new Cure());
-}
-
-void	Cure::use(ICharacter &target)
+void Cure::use(ICharacter &target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds*" << std::endl;
 }

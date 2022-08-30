@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/29 15:28:39 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/08/30 15:33:01 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ Character::Character() : _name("Unknown")
 	int i;
 
 	i = 0;
-	while (i < maxSlot)
+	while (i < _slot)
 	{
-		this->inventory[i] = NULL;
+		this->_inventory[i] = NULL;
 		i++;
 	}
 }
@@ -31,30 +31,27 @@ Character::Character(std::string newName) : _name(newName)
 	int i;
 
 	i = 0;
-	while (i < maxSlot)
+	while (i < _slot)
 	{
-		this->inventory[i] = NULL;
+		this->_inventory[i] = NULL;
 		i++;
 	}
 }
 
-Character::Character(const Character &cpy) : _name(cpy._name)
+Character::Character(const Character &cpy)
 {
 	std::cout << "Character copy constructor called" << std::endl;
-	int i;
-
-	i = 0;
-	while (i < maxSlot)
-	{
-		this->inventory[i] = cpy.inventory[i] ? cpy.inventory[i]->clone() : NULL;
-		i++;
-	}
+	*this = cpy;
 }
 
 Character::~Character()
 {
 	std::cout << "Character destructor called" << std::endl;
-	delete[] *this->inventory;
+	for (int i = 0; i < _slot; i++)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
 Character &Character::operator=(const Character &rhs)
@@ -62,11 +59,15 @@ Character &Character::operator=(const Character &rhs)
 	int i;
 
 	i = 0;
-	while (i < maxSlot)
+	this->_name = rhs._name;
+	while (i < _slot)
 	{
-		if (this->inventory[i])
-			delete this->inventory[i];
-		this->inventory[i] = rhs.inventory[i] ? rhs.inventory[i]->clone() : NULL;
+		if (_inventory[i])
+			delete _inventory[i];
+		if (rhs._inventory[i])
+			_inventory[i] = rhs._inventory[i]->clone();
+		else
+			_inventory[i] = NULL;
 		i++;
 	}
 	return (*this);
@@ -82,22 +83,32 @@ void	Character::equip(AMateria *m)
 	int i;
 
 	i = 0;
-	while (i < maxSlot)
+	while (i < _slot)
 	{
-		if (this->inventory[i] == NULL)
-			this->inventory[i] = m;
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			std::cout << "equips " << m->getType() << " in slot " << i << std::endl;
+			return ;
+		}
 		i++;
 	}
 }
 
 void	Character::unequip(int idx)
 {
-	if (this->inventory[idx] && idx > 0 && idx < maxSlot)
-		this->inventory[idx] = NULL;
+	if (this->_inventory[idx] && idx > 0 && idx < _slot)
+	{
+		this->_inventory[idx] = NULL;
+		std::cout << "unequips " << _inventory[idx]->getType() << " from slot " << idx << std::endl;
+	}
 }
 
 void	Character::use(int idx, ICharacter &target)
 {	
-	if (this->inventory[idx] && idx > 0 && idx < maxSlot)
-		this->inventory[idx]->use(target);
+	if (this->_inventory[idx] && idx > 0 && idx < _slot)
+	{
+		this->_inventory[idx]->use(target);
+		return ;
+	}
 }

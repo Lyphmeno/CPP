@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 12:40:07 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 13:29:06 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	if (this->_inventory[idx] && idx >= 0 && idx < _slot)
+	if (idx >= 0 && idx < _slot)
 	{
-		this->_inventory[idx] = NULL;
 		std::cout << this->_name << " unequips -" << _inventory[idx]->getType() << "- from slot " << idx << std::endl;
+		this->_inventory[idx] = NULL;
 	}
 }
 
@@ -115,7 +115,7 @@ void	Character::use(int idx, ICharacter &target)
 		this->_inventory[idx]->use(target);
 		return ;
 	}
-	std::cout << "does nothing" << std::endl;
+	std::cout << "no materia in this slot" << std::endl;
 }
 
 void	Character::inventory(void) const

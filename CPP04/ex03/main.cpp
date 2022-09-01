@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:54:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 14:46:47 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 13:02:23 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,26 @@ int main()
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	ICharacter *me = new Character("me");
+	std::cout << std::endl;
+
+	ICharacter *Cloud = new Character("Cloud");
 	AMateria *tmp;
 	tmp = src->createMateria("ice");
-	me->equip(tmp);
+	std::cout << tmp->getType() << std::endl;
+	Cloud->equip(tmp);
 	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter *bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	delete bob;
-	delete me;
+	std::cout << tmp->getType() << std::endl;
+	Cloud->equip(tmp);
+	std::cout << std::endl;
+	Cloud->inventory();
+
+	ICharacter *Sephiroth = new Character("Sephiroth");
+	Cloud->use(0, *Sephiroth);
+	Cloud->use(1, *Sephiroth);
+	std::cout << std::endl;
+	Sephiroth->inventory();
+	delete Sephiroth;
+	delete Cloud;
 	delete src;
 	return 0;
 }

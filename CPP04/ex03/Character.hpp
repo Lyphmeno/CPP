@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 14:53:25 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 11:32:23 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Character: public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		void inventory(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 09:51:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 14:46:24 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 11:30:28 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+
+#define LOG 0
 
 class ICharacter;
 
@@ -32,7 +34,7 @@ class AMateria
 		std::string const &getType() const;
 
 		virtual AMateria *clone() const = 0;
-		virtual void use(ICharacter &target) = 0;
+		virtual void use(ICharacter &target);
 };
 
 #endif

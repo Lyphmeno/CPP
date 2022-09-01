@@ -6,14 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 14:55:36 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 10:56:03 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 #include "IMateriaSource.hpp"
-#define	slot 4
 
 class MateriaSource : public IMateriaSource
 {

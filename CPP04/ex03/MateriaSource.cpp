@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 15:30:01 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/01 12:49:44 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 MateriaSource::MateriaSource()
 {
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	if (LOG == 1)
+		std::cout << "MateriaSource default constructor called" << std::endl;
 	int i;
 
 	i = 0;
@@ -27,20 +28,15 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &cpy)
 {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
-	int i;
-
-	i = 0;
-	while (i < _slot)
-	{
-		_inventory[i] = (cpy._inventory[i]) ? cpy._inventory[i]->clone() : NULL;
-		i++;
-	}
+	if (LOG == 1)
+		std::cout << "MateriaSource copy constructor called" << std::endl;
+	*this = cpy;
 }
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource destructor called" << std::endl;
+	if (LOG == 1)
+		std::cout << "MateriaSource destructor called" << std::endl;
 	int i;
 
 	i = 0;
@@ -77,8 +73,9 @@ void MateriaSource::learnMateria(AMateria *materia)
 	i = 0;
 	while (i < _slot)
 	{
-		if (!this->_inventory[i])
+		if (this->_inventory[i] == NULL)
 		{
+			std::cout << "learning " << materia->getType() << std::endl;
 			this->_inventory[i] = materia;
 			return;
 		}
@@ -89,14 +86,11 @@ void MateriaSource::learnMateria(AMateria *materia)
 
 AMateria *MateriaSource::createMateria(const std::string &type)
 {
-	int i;
-
-	i = 0;
-	while (i < _slot)
+	for (int i = 0; i < _slot; i++)
 	{
-		if (this->_inventory[i]->getType() == type && _inventory[i] != NULL)
-			return (this->_inventory[i]->clone());
-		i++;
+		std::cout << "creating " << type << std::endl;
+		if (_inventory[i] != NULL && _inventory[i]->getType() == type)
+			return (_inventory[i]->clone());
 	}
 	return (NULL);
 }

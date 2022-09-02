@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 13:29:06 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 14:21:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	Character::equip(AMateria *m)
 		}
 		i++;
 	}
+	std::cout << this->_name << " doesn't have any slot left -" << m->getType() << " materia- is fading" << std::endl;
 	delete m;
 }
 
@@ -109,7 +110,7 @@ void	Character::unequip(int idx)
 }
 
 void	Character::use(int idx, ICharacter &target)
-{	
+{
 	if (this->_inventory[idx] && idx >= 0 && idx < _slot)
 	{
 		this->_inventory[idx]->use(target);

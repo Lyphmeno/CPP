@@ -6,12 +6,12 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 10:56:03 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:23:13 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_HPP
-#define MATERIASOURCE_HPP
+#pragma once
+
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
@@ -28,5 +28,3 @@ class MateriaSource : public IMateriaSource
 		void learnMateria(AMateria*);
 		AMateria *createMateria(std::string const &type);
 };
-
-#endif

@@ -6,13 +6,14 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:15 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 13:06:50 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:23:40 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP
+#pragma once
+
 #include "AMateria.hpp"
+
 class AMateria;
 
 class ICharacter
@@ -25,5 +26,3 @@ class ICharacter
 		virtual void use(int idx, ICharacter &target) = 0;
 		virtual void inventory(void) const = 0;
 };
-
-#endif

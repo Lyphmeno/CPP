@@ -6,12 +6,12 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 11:32:23 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:23:18 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-#define CHARACTER_HPP
+#pragma once
+
 #include "ICharacter.hpp"
 
 class Character: public ICharacter
@@ -34,5 +34,3 @@ class Character: public ICharacter
 		void use(int idx, ICharacter& target);
 		void inventory(void) const;
 };
-
-#endif

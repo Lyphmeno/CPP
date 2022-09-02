@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 12:49:44 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:26:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,15 +53,18 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 	int i;
 
 	i = 0;
-	while (i < _slot)
+	if (this != &rhs)
 	{
-		if (_inventory[i])
-			delete _inventory[i];
-		if (rhs._inventory[i])
-			_inventory[i] = rhs._inventory[i]->clone();
-		else
-			_inventory[i] = NULL;
-		i++;
+		while (i < _slot)
+		{
+			if (_inventory[i])
+				delete _inventory[i];
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+			i++;
+		}
 	}
 	return (*this);
 }
@@ -88,9 +91,11 @@ AMateria *MateriaSource::createMateria(const std::string &type)
 {
 	for (int i = 0; i < _slot; i++)
 	{
-		std::cout << "creating " << type << std::endl;
-		if (_inventory[i] != NULL && _inventory[i]->getType() == type)
-			return (_inventory[i]->clone());
+		if (this->_inventory[i] != NULL && this->_inventory[i]->getType() == type)
+		{
+			std::cout << "creating " << type << std::endl;
+			return (this->_inventory[i]->clone());
+		}
 	}
 	return (NULL);
 }

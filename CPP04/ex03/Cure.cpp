@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 11:01:45 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/01 10:57:10 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/02 13:14:48 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cure::Cure() : AMateria("cure")
 		std::cout << "Cure default constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure &cpy)
+Cure::Cure(const Cure &cpy) : AMateria(cpy)
 {
 	if (LOG == 1)
 		std::cout << "Cure copy constructor called" << std::endl;

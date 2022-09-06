@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:34:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 11:50:24 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 13:12:37 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	Character::inventory(void) const
 	std::cout << "\t" << this->getName() << std::endl;
 	for (int i = 0; i < _slot; i++)
 	{
-		std::cout << " [" << i << "] ";
+		std::cout << " [" << &this->_inventory[i] << "] ";
 		if (_inventory[i])
 			std::cout << _inventory[i]->getType();
 		std::cout << std::endl;

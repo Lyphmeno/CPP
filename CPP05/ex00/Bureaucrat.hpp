@@ -6,13 +6,15 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 12:12:38 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 13:51:03 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+
+#define LOG	0
 
 class Bureaucrat
 {
@@ -25,11 +27,6 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat &cpy);
 		~Bureaucrat();
 		Bureaucrat	&operator= (const Bureaucrat &rhs);
-
-		Bureaucrat	&operator-- ();
-		Bureaucrat	operator-- (int);
-		Bureaucrat	&operator++ ();
-		Bureaucrat	operator++ (int);
 
 		std::string	getName() const;
 		int			getGrade() const;

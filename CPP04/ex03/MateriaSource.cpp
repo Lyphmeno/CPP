@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 12:27:03 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 13:09:29 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,13 @@ MateriaSource::~MateriaSource()
 	i = 0;
 	while (i < _slot)
 	{
+		std::cout << "entering the thing" << std::endl;
 		if (this->_inventory[i])
+		{
+			std::cout << "deleting " << this->_inventory[i]->getType() << std::endl;
+			std::cout << "deleting " << &(this->_inventory[i]) << std::endl;
 			delete this->_inventory[i];
+		}
 		i++;
 	}
 }

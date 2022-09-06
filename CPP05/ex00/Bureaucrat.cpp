@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 14:19:15 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 13:50:58 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Bureaucrat::Bureaucrat() : _name("John Doe"), _grade(150)
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	if  (LOG == 1)
+		std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
 {
-	std::cout << "Bureaucrat assignation constructor called" << std::endl;
+	if  (LOG == 1)
+		std::cout << "Bureaucrat assignation constructor called" << std::endl;
 	if (newGrade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (newGrade > 150)
@@ -28,20 +30,32 @@ Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
 	{
 		this->_grade = newGrade;
 		this->_name = newName;
-		std::cout << "Bureaucrat assignation constructor succeeded" << std::endl;
+		if  (LOG == 1)
+			std::cout << "Bureaucrat assignation constructor succeeded" << std::endl;
 	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
-	this->_name = cpy._name;
-	this->_grade = cpy._grade;
+	if  (LOG == 1)
+		std::cout << "Bureaucrat copy constructor called" << std::endl;
+	if (cpy._grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (cpy._grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else
+	{
+		this->_name = cpy._name;
+		this->_grade = cpy._grade;
+		if  (LOG == 1)
+			std::cout << "Bureaucrat copy constructor succeeded" << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	if  (LOG == 1)
+		std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
@@ -49,34 +63,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs)
 	this->_name = rhs._name;
 	this->_grade = rhs._grade;
 	return (*this);
-}
-
-Bureaucrat &Bureaucrat::operator++()
-{
-	this->_grade++;
-	return (*this);
-}
-
-Bureaucrat Bureaucrat::operator++(int)
-{
-	Bureaucrat tmp;
-	tmp = *this;
-	++*this;
-	return (tmp);
-}
-
-Bureaucrat &Bureaucrat::operator--()
-{
-	this->_grade--;
-	return (*this);
-}
-
-Bureaucrat Bureaucrat::operator--(int)
-{
-	Bureaucrat tmp;
-	tmp = *this;
-	--*this;
-	return (tmp);
 }
 
 std::string Bureaucrat::getName() const
@@ -97,7 +83,7 @@ void Bureaucrat::promote()
 		this->_grade--;
 	}
 	else
-		std::cout << this->_name << " can't be promoted" << std::endl;
+		throw Bureaucrat::GradeTooHighException();
 }
 
 void Bureaucrat::demote()
@@ -108,7 +94,7 @@ void Bureaucrat::demote()
 		this->_grade++;
 	}
 	else
-		std::cout << this->_name << " can't be demoted" << std::endl;
+		throw Bureaucrat::GradeTooLowException();
 }
 
 // GradeTooLowException

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/08/30 13:08:27 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 14:02:19 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,58 @@
 
 int main()
 {
-	Bureaucrat *Ed;
-	Bureaucrat *frost = new Bureaucrat("Nick", 1);
-	Bureaucrat *pegg = new Bureaucrat("Simon", 150);
+	Bureaucrat* bureaucrat = new Bureaucrat("Cronos", 2);
+    Bureaucrat* stagiaire = new Bureaucrat("Rhea", 149);
 
-	try
-	{
-		Ed = new Bureaucrat("Shaun", 0);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-		delete Ed;
-	}
-	
+    try
+    {
+        std::cout << *bureaucrat;
+        bureaucrat->promote();
+        std::cout << *bureaucrat;
+        bureaucrat->promote();
+        std::cerr << "[+][1] Exception isn't working nicely. " << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cerr << "[1] Exception : " << e.what() << std::endl;
+    }
 
-	std::cout << std::endl;
-	std::cout << *frost;
-	std::cout << *pegg << std::endl;
+    try
+    {
+        std::cout << *stagiaire;
+        stagiaire->demote();
+        std::cout << *stagiaire;
+        stagiaire->demote();
+        std::cerr << "[+][2] Exception isn't working nicely. " << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cerr << "[2] Exception : " << e.what() << std::endl;
+    }
 
-	frost->demote();
-	std::cout << *frost;
-	std::cout << *pegg << std::endl;
+    Bureaucrat* toHigh;
+    Bureaucrat* toLow;
 
-	pegg->demote();
-	std::cout << *frost;
-	std::cout << *pegg << std::endl;
+    try
+    {
+        toHigh = new Bureaucrat("ToHigh", 0);
+        std::cerr << "[+][3] Exception isn't working nicely. " << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cerr << "[3] Exception : " << e.what() << std::endl;
+    }
+    
+    try
+    {
+        toLow = new Bureaucrat("ToLow", 420);
+        std::cerr << "[+][4] Exception isn't working nicely. " << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cerr << "[4] Exception : " << e.what() << std::endl;
+    }
 
-	pegg->promote();
-	std::cout << *frost;
-	std::cout << *pegg << std::endl;
-
-	delete frost;
-	delete pegg;
-	return (0);
+    delete bureaucrat;
+    delete stagiaire;
 }

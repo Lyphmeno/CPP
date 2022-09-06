@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:54:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 12:27:19 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 12:55:36 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int main()
 	tmp = src->createMateria("cure");
 	std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
 	Cloud->equip(tmp);
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("cure");
 	std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
 	Cloud->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = src->createMateria("ice");
 	std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
 	Cloud->equip(tmp);
 	// tmp = src->createMateria("cure");

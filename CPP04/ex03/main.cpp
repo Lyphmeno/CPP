@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 10:54:35 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/02 14:51:29 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 12:27:19 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int main()
 	tmp = src->createMateria("cure");
 	std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
 	Cloud->equip(tmp);
-	tmp = src->createMateria("cure");
-	std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
-	//Cloud->equip(tmp);
+	// tmp = src->createMateria("cure");
+	// std::cout << "tmp = " << tmp->getType() << " " << &tmp << std::endl;
+	// Cloud->equip(tmp);
 	std::cout << std::endl;
 	Cloud->inventory();
 
@@ -48,17 +48,18 @@ int main()
 	Cloud->use(1, *Sephiroth);
 	Cloud->use(2, *Sephiroth);
 	Cloud->unequip(3);
-	// Cloud->unequip(1);
-	// Cloud->unequip(0);
+	Cloud->unequip(1);
+	Cloud->unequip(0);
 	Cloud->inventory();
 	Cloud->use(1, *Sephiroth);
 	Cloud->use(2, *Sephiroth);
+	Cloud->use(3, *Sephiroth);
 	std::cout << std::endl;
 	Sephiroth->inventory();
 
+	delete tmp;
+	delete src;
 	delete Sephiroth;
 	delete Cloud;
-	delete src;
-	delete tmp;
 	return 0;
 }

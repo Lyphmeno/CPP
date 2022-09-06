@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 12:21:43 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 13:09:29 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/06 15:58:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ MateriaSource::~MateriaSource()
 	i = 0;
 	while (i < _slot)
 	{
-		std::cout << "entering the thing" << std::endl;
 		if (this->_inventory[i])
 		{
-			std::cout << "deleting " << this->_inventory[i]->getType() << std::endl;
-			std::cout << "deleting " << &(this->_inventory[i]) << std::endl;
+			if (LOG == 1)
+				std::cout << "deleting " << this->_inventory[i]->getType() << std::endl;
 			delete this->_inventory[i];
 		}
 		i++;
@@ -83,7 +82,8 @@ void MateriaSource::learnMateria(AMateria *materia)
 	{
 		if (this->_inventory[i] == NULL)
 		{
-			std::cout << "learning " << materia->getType() << std::endl;
+			if (LOG == 1)
+				std::cout << "learning " << materia->getType() << std::endl;
 			this->_inventory[i] = materia;
 			return;
 		}
@@ -98,7 +98,8 @@ AMateria *MateriaSource::createMateria(const std::string &type)
 	{
 		if (this->_inventory[i] != NULL && this->_inventory[i]->getType() == type)
 		{
-			std::cout << "creating " << type << std::endl;
+			if (LOG == 1)
+				std::cout << "creating " << type << std::endl;
 			return (this->_inventory[i]->clone());
 		}
 	}

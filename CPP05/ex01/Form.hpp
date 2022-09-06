@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/21 12:21:34 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 15:55:31 by hlevi            ###   ########.fr       */
+/*   Created: 2022/09/06 14:08:15 by hlevi             #+#    #+#             */
+/*   Updated: 2022/09/06 14:10:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "Bureaucrat.hpp"
 
-#include "IMateriaSource.hpp"
-
-class MateriaSource : public IMateriaSource
+class Form
 {
-	protected:
-		static const int	_slot = 4;
-		AMateria			*_inventory[_slot];
+	private:
+		std::string	_name;
+		bool		_sign;
+		int			_signGrade;
+		int			_exeGrade;
 	public:
-		MateriaSource();
-		MateriaSource(const MateriaSource &cpy);
-		virtual ~MateriaSource();
-		MateriaSource &operator= (const MateriaSource &rhs);
-
-		void learnMateria(AMateria*);
-		AMateria *createMateria(std::string const &type);
+		Form();
+		~Form();
 };

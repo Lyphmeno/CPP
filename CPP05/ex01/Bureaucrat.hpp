@@ -6,15 +6,18 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 13:51:03 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/07 12:59:04 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
 
 #define LOG	0
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,6 +36,7 @@ class Bureaucrat
 
 		void	promote();
 		void	demote();
+		void	signForm(Form &rhs);
 
 		class GradeTooLowException : public std::exception
 		{

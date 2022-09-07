@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:40 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 13:50:58 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/07 12:58:14 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Bureaucrat::Bureaucrat() : _name("John Doe"), _grade(150)
 {
-	if  (LOG == 1)
+	if (LOG == 1)
 		std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
 {
-	if  (LOG == 1)
+	if (LOG == 1)
 		std::cout << "Bureaucrat assignation constructor called" << std::endl;
 	if (newGrade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -30,14 +30,14 @@ Bureaucrat::Bureaucrat(const std::string newName, int newGrade)
 	{
 		this->_grade = newGrade;
 		this->_name = newName;
-		if  (LOG == 1)
+		if (LOG == 1)
 			std::cout << "Bureaucrat assignation constructor succeeded" << std::endl;
 	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 {
-	if  (LOG == 1)
+	if (LOG == 1)
 		std::cout << "Bureaucrat copy constructor called" << std::endl;
 	if (cpy._grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -47,14 +47,14 @@ Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
 	{
 		this->_name = cpy._name;
 		this->_grade = cpy._grade;
-		if  (LOG == 1)
+		if (LOG == 1)
 			std::cout << "Bureaucrat copy constructor succeeded" << std::endl;
 	}
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	if  (LOG == 1)
+	if (LOG == 1)
 		std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
@@ -95,6 +95,23 @@ void Bureaucrat::demote()
 	}
 	else
 		throw Bureaucrat::GradeTooLowException();
+}
+
+void Bureaucrat::signForm(Form &rhs)
+{
+	if (rhs.getStatus() == true)
+		std::cout << this->_name << " : I can't sign whats already signed for god sake !!!" << std::endl;
+	else
+		try
+		{
+			rhs.beSigned(*this);
+			std::cout << this->_name << " signed " << rhs.getName() << std::endl;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << this->_name << " couldn't sign " << rhs.getName() << " because ";
+			std::cout << e.what() << std::endl;
+		}
 }
 
 // GradeTooLowException

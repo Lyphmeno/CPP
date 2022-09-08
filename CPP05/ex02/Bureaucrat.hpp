@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/07 12:59:04 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/08 12:29:33 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
 		void	promote();
 		void	demote();
 		void	signForm(Form &rhs);
+		void	executeForm(const Form &form);
 
 		class GradeTooLowException : public std::exception
 		{

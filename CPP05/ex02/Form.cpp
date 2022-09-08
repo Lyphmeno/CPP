@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 16:20:06 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/07 15:09:22 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/08 13:16:46 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ Form::Form(std::string newName, const int toSign, const int toExe) : _signed(fal
 	else if (toSign > 150 || toExe > 150)
 		throw Form::GradeTooLowException();
 	this->_name = newName;
+	this->_signGrade = toSign;
+	this->_exeGrade = toExe;
+}
+
+Form::Form(std::string newName, std::string newTarget, int toSign, int toExe) : _signed(false)
+{
+	if (LOG == 1)
+		std::cout << "Form target assignation constructor called" << std::endl;
+	if (toSign < 1 || toExe < 1)
+		throw Form::GradeTooHighException();
+	else if (toSign > 150 || toExe > 150)
+		throw Form::GradeTooLowException();
+	this->_name = newName;
+	this->_target = newTarget;
 	this->_signGrade = toSign;
 	this->_exeGrade = toExe;
 }
@@ -73,6 +87,11 @@ const std::string &Form::getName() const
 	return (this->_name);
 }
 
+const std::string &Form::getTarget() const
+{
+	return (this->_target);
+}
+
 bool Form::getStatus() const
 {
 	return (this->_signed);
@@ -95,6 +114,17 @@ void Form::beSigned(const Bureaucrat &bcrat)
 		this->_signed = true;
 	else
 		throw Form::GradeTooLowException();
+}
+
+void Form::exe() const {}
+
+void Form::execute(const Bureaucrat &executor) const
+{
+	if (!this->_signed)
+		throw std::string("Form not signed.");
+	else if (executor.getGrade() > this->_exeGrade)
+		throw Form::GradeTooLowException();
+	this->exe();
 }
 
 // GradeTooLowException

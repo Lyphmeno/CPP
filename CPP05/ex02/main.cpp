@@ -6,19 +6,23 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/07 15:18:00 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/08 15:31:20 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
 	Bureaucrat *bureaucrat = new Bureaucrat("Cronos", 2);
 	Bureaucrat *stagiaire = new Bureaucrat("Rhea", 149);
-	Bureaucrat *alternant = new Bureaucrat("Mnemosyne", 141);
+	Bureaucrat *alternant = new Bureaucrat("Mnemosyne", 138);
 	Form *aForm = new Form();
-	Form *bForm = new Form("Koyos", 140, 2);
+	Form *bForm = new Form("Koyos", 137, 2);
+	Form *treeTest = new ShrubberyCreationForm("testFile", "Persephone");
 
 	try
 	{
@@ -88,7 +92,6 @@ int main()
 	std::cout << *bForm;
 	try
 	{
-
 		alternant->signForm(*bForm);
 	}
 	catch (std::exception &e)
@@ -102,13 +105,23 @@ int main()
 	std::cout << *bForm;
 	try
 	{
-
 		alternant->signForm(*bForm);
 	}
 	catch (std::exception &e)
 	{
 		std::cerr << "Mnemosyne Exception : " << e.what() << std::endl;
 	}
+
+	try
+	{
+		treeTest->execute(*alternant);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Persephone Exception : " << e.what() << std::endl;
+	}
+
+	delete treeTest;
 	delete aForm;
 	delete bForm;
 	delete alternant;

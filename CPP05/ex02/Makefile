@@ -1,6 +1,7 @@
-NAME	=	FormInheritance
+NAME	=	ExeForm
 SRC		=	$(shell find . -type f -name "*.cpp")
 HEADERS	=	$(shell find . -type f -name "*.hpp")
+TODEL	=	$(shell find . -type f -name "*_shrubbery")
 OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
 
 CC		=	c++
@@ -14,7 +15,7 @@ $(NAME):	$(OBJ) $(HEADERS) Makefile
 
 .PHONY:	clean
 clean:
-			@$(RM) $(OBJ)
+			@$(RM) $(OBJ) $(TODEL)
 
 .PHONY:	fclean
 fclean:		clean

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/08 15:31:20 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/09 15:17:11 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int main()
 	Bureaucrat *alternant = new Bureaucrat("Mnemosyne", 138);
 	Form *aForm = new Form();
 	Form *bForm = new Form("Koyos", 137, 2);
-	Form *treeTest = new ShrubberyCreationForm("testFile", "Persephone");
+	Form *treeTest = new ShrubberyCreationForm("treeFile", "Persephone");
+	Form *presTest = new PresidentialPardonForm("Eros", "Zeus");
+	Form *roboTest = new RobotomyRequestForm("Rosemary Kennedy", "Hephaistos");
 
 	try
 	{
@@ -111,16 +113,68 @@ int main()
 	{
 		std::cerr << "Mnemosyne Exception : " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
 
 	try
 	{
-		treeTest->execute(*alternant);
+		alternant->executeForm(*treeTest);
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Persephone Exception : " << e.what() << std::endl;
+		std::cerr << "Persephone 1st Exe Exception : " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
+	std::cout << *alternant;
+	std::cout << *treeTest;
 
+	try
+	{
+		alternant->signForm(*treeTest);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Persephone Sign Exception : " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << *treeTest;
+
+	try
+	{
+		alternant->executeForm(*treeTest);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Persephone 2nd Exe Exception : " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << *bureaucrat;
+	std::cout << *roboTest;
+	bureaucrat->signForm(*roboTest);
+
+	try
+	{
+		bureaucrat->executeForm(*roboTest);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Persephone Sign Exception : " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << *presTest;
+	bureaucrat->signForm(*presTest);
+
+	try
+	{
+		bureaucrat->executeForm(*presTest);
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Persephone Sign Exception : " << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	delete presTest;
+	delete roboTest;
 	delete treeTest;
 	delete aForm;
 	delete bForm;

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:08:15 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/08 14:40:04 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/09 14:24:09 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Form
 		int		getExeGrade() const;
 
 		void beSigned(const Bureaucrat &bcrat);
-		virtual void execute(const Bureaucrat &executor) const;
+		void execute(const Bureaucrat &executor) const;
 
 		class GradeTooLowException : public std::exception
 		{
@@ -52,6 +52,12 @@ class Form
 		};
 
 		class GradeTooHighException : public std::exception
+		{
+		public:
+			virtual const char *what() const throw();
+		};
+
+		class NotSigned : public std::exception
 		{
 		public:
 			virtual const char *what() const throw();

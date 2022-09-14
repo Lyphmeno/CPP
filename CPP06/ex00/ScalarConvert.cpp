@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConvert.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
+/*   Updated: 2022/09/14 15:19:59 by hlevi            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConvert.hpp"
 #define LOG 0
 
@@ -11,7 +23,7 @@ ScalarConvert::ScalarConvert(const ScalarConvert &cpy)
 {
 	if (LOG == 1)
 		std::cout << "ScalarConvert copy constructor called" << std::endl;
-	(void)cpy;
+	// ! Make copy ! this->thing = cpy->thing
 }
 
 ScalarConvert::~ScalarConvert()

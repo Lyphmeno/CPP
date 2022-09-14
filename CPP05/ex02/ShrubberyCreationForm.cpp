@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:56:52 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 15:00:37 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/14 11:58:22 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void ShrubberyCreationForm::exe() const
 	std::string fileName = this->getTarget() + "_shrubbery";
 	std::fstream treeFile;
 
-	treeFile.open(fileName, std::fstream::in | std::fstream::out | std::fstream::app);
+	treeFile.open(fileName.c_str(), std::fstream::in | std::fstream::out | std::fstream::app);
 	if (treeFile.is_open())
 	{
 		treeFile << "        ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl;

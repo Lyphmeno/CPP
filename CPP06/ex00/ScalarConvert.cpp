@@ -11,7 +11,7 @@ ScalarConvert::ScalarConvert(const ScalarConvert &cpy)
 {
 	if (LOG == 1)
 		std::cout << "ScalarConvert copy constructor called" << std::endl;
-	// ! Make copy ! this->thing = cpy->thing
+	(void)cpy;
 }
 
 ScalarConvert::~ScalarConvert()

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:56:14 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 12:51:28 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/20 13:19:13 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(std::string const &target, std::string newName);
 		ShrubberyCreationForm(const ShrubberyCreationForm &cpy);
-		~ShrubberyCreationForm();
+		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 };

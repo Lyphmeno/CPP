@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:28:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 13:51:03 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/20 13:19:42 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Bureaucrat
 		Bureaucrat();
 		Bureaucrat(const std::string newName, int rank);
 		Bureaucrat(const Bureaucrat &cpy);
-		~Bureaucrat();
+		virtual ~Bureaucrat();
 		Bureaucrat	&operator= (const Bureaucrat &rhs);
 
 		std::string	getName() const;

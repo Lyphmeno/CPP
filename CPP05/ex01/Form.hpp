@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 14:08:15 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/07 12:59:01 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/20 13:19:34 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Form
 		Form();
 		Form(std::string newName, int toSign, int toExe);
 		Form(const Form &cpy);
-		~Form();
+		virtual ~Form();
 		Form &operator=(const Form &rhs);
 
 		const std::string	&getName() const;

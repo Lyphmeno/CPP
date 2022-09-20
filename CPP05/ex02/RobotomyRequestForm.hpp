@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:55:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 12:51:55 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/20 13:19:09 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm(std::string const &target);
 		RobotomyRequestForm(std::string const &target, std::string newName);
 		RobotomyRequestForm(const RobotomyRequestForm &cpy);
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &rhs);
 
 };

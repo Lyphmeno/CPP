@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/21 16:33:01 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/21 18:09:03 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ private:
 	float _floatType;
 	double _doubleType;
 	int _typeValue;
-
 public:
 	// Coplien //
 	ScalarConvert();

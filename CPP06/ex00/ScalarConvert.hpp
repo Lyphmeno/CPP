@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/21 18:09:03 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/22 15:18:16 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>
+#include <climits>
 #include <string>
 
 #define NONE 0
@@ -27,12 +29,12 @@ class ScalarConvert
 {
 private:
 	std::string _baseStr;
-	std::string _strClean;
 	char _charType;
 	int _intType;
 	float _floatType;
 	double _doubleType;
 	int _typeValue;
+
 public:
 	// Coplien //
 	ScalarConvert();
@@ -56,8 +58,15 @@ public:
 	// Methods //
 	void findType(char *str);
 	bool isPsdLit(std::string str);
+	void castAll();
+	void printAll();
 	// Exceptions //
 	class ExWrongInput : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+	class ExWrongValue : public std::exception
 	{
 	public:
 		virtual const char *what() const throw();

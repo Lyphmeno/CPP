@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/21 16:33:02 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/22 15:18:49 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ ScalarConvert::ScalarConvert()
 	if (LOG == 1)
 		std::cout << "ScalarConvert default constructor called" << std::endl;
 	this->_baseStr = "";
-	this->_strClean = "";
 	this->_charType = 0;
 	this->_intType = 0;
 	this->_floatType = 0;
@@ -34,7 +33,6 @@ ScalarConvert::ScalarConvert(const ScalarConvert &cpy)
 	if (LOG == 1)
 		std::cout << "ScalarConvert copy constructor called" << std::endl;
 	this->_baseStr = cpy._baseStr;
-	this->_strClean = cpy._strClean;
 	this->_charType = cpy._charType;
 	this->_intType = cpy._intType;
 	this->_floatType = cpy._floatType;
@@ -53,7 +51,6 @@ ScalarConvert &ScalarConvert::operator=(const ScalarConvert &rhs)
 	if (this != &rhs)
 	{
 		this->_baseStr = rhs._baseStr;
-		this->_strClean = rhs._strClean;
 		this->_charType = rhs._charType;
 		this->_intType = rhs._intType;
 		this->_floatType = rhs._floatType;
@@ -131,13 +128,6 @@ void ScalarConvert::findType(char *str)
 	int hasLtr = 0;
 	int i = 0;
 
-	if (this->_baseStr.size() == 1)
-	{
-		std::cout << "Is a CHAR !" << std::endl;
-		this->setTypeValue(CHAR);
-		this->_charType = std::atoi(str);
-		return;
-	}
 	if (isPsdLit(this->_baseStr))
 	{
 		std::cout << "Is a LIT PSEUDO !" << std::endl;
@@ -158,26 +148,73 @@ void ScalarConvert::findType(char *str)
 			hasLtr++;
 		i++;
 	}
-	if (hasDot == 1 && hasDig && hasFlt)
+	if (i == 1 && !hasDig)
 	{
-		std::cout << "Is a FLOAT !" << std::endl;
+		this->setTypeValue(CHAR);
+		this->_charType = std::atoi(str);
+		std::cout << "Is a CHAR : " << this->_charType << std::endl;
+	}
+	else if (hasDot == 1 && hasDig && hasFlt)
+	{
 		this->setTypeValue(FLOAT);
-		this->_floatType = std::stof(this->_baseStr);
+		this->_floatType = std::strtof(str, NULL);
+		std::cout << "Is a FLOAT : " << this->_floatType << std::endl;
 	}
 	else if (hasDot == 1 && hasDig && !hasFlt)
 	{
-		std::cout << "Is a DOUBLE !" << std::endl;
 		this->setTypeValue(DOUBLE);
-		this->_doubleType = std::stod(this->_baseStr);
+		this->_doubleType = std::strtod(str, NULL);
+		std::cout << "Is a DOUBLE : " << this->_doubleType << std::endl;
 	}
 	else if (!hasDot && hasDig && !hasFlt && !hasLtr)
 	{
-		std::cout << "Is a INT !" << std::endl;
-		this->setTypeValue(INT);
+		if (std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX)
+		{
+			this->setTypeValue(INT);
+			this->_intType = std::atoi(str);
+			std::cout << "Is a INT : " << this->_intType << std::endl;
+		}
 	}
 	else
 		this->setTypeValue(NONE);
 	return;
+}
+
+void ScalarConvert::castAll()
+{
+	switch (this->getTypeValue())
+	{
+	case CHAR:
+		this->_intType = static_cast<int>(this->_charType);
+		this->_floatType = static_cast<float>(this->_charType);
+		this->_doubleType = static_cast<double>(this->_charType);
+		break;
+	case INT:
+		this->_charType = static_cast<char>(this->_intType);
+		this->_floatType = static_cast<float>(this->_intType);
+		this->_doubleType = static_cast<double>(this->_intType);
+		break;
+	case FLOAT:
+		this->_charType = static_cast<char>(this->_floatType);
+		this->_intType = static_cast<int>(this->_floatType);
+		this->_doubleType = static_cast<double>(this->_floatType);
+		break;
+	case DOUBLE:
+		this->_charType = static_cast<char>(this->_doubleType);
+		this->_intType = static_cast<int>(this->_doubleType);
+		this->_floatType = static_cast<float>(this->_doubleType);
+		break;
+	default:
+		break;
+	}
+}
+
+void ScalarConvert::printAll()
+{
+	std::cout << "char: " << this->_charType << std::endl;
+	std::cout << "int: " << this->_intType << std::endl;
+	std::cout << "float: " << this->_floatType << std::endl;
+	std::cout << "double: " << this->_doubleType << std::endl;
 }
 
 bool ScalarConvert::isPsdLit(std::string str)
@@ -193,4 +230,9 @@ bool ScalarConvert::isPsdLit(std::string str)
 const char *ScalarConvert::ExWrongInput::what() const throw()
 {
 	return ("One and only ONE arg needed for this program");
+}
+
+const char *ScalarConvert::ExWrongValue::what() const throw()
+{
+	return ("Value entered is WRONG !");
 }

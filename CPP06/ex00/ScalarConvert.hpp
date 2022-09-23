@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/22 15:18:16 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/23 14:59:36 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ public:
 	void findType(char *str);
 	bool isPsdLit(std::string str);
 	void castAll();
+	void printChar();
+	void printInt();
 	void printAll();
 	// Exceptions //
 	class ExWrongInput : public std::exception

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/22 15:18:49 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/23 15:00:30 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,10 +209,28 @@ void ScalarConvert::castAll()
 	}
 }
 
+void ScalarConvert::printChar()
+{
+	if (this->_typeValue == PSDLIT)
+		std::cout << "char: impossible" << std::endl;
+	else if (this->_charType < 33 || this->_charType > 126)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: " << this->_charType << std::endl;
+}
+
+void ScalarConvert::printInt()
+{
+	if (this->_typeValue == PSDLIT)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << this->_intType << std::endl;
+}
+
 void ScalarConvert::printAll()
 {
-	std::cout << "char: " << this->_charType << std::endl;
-	std::cout << "int: " << this->_intType << std::endl;
+	printChar();
+	printInt();
 	std::cout << "float: " << this->_floatType << std::endl;
 	std::cout << "double: " << this->_doubleType << std::endl;
 }

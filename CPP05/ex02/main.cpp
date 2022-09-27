@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/27 15:49:45 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/27 16:15:21 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,27 @@ int main()
 	}
 	std::cout << std::endl;
 
-	Bureaucrat *toHigh;
-	Bureaucrat *toLow;
+	Bureaucrat *tooHigh;
+	Bureaucrat *tooLow;
 
 	try
 	{
-		toHigh = new Bureaucrat("ToHigh", 0);
+		tooHigh = new Bureaucrat("TooHigh", 0);
 		std::cerr << "ToHigh Exception ERROR " << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "ToHigh Exception : " << e.what() << std::endl;
+		std::cerr << "TooHigh Exception : " << e.what() << std::endl;
 	}
 
 	try
 	{
-		toLow = new Bureaucrat("ToLow", 420);
-		std::cerr << "ToLow Exception ERROR " << std::endl;
+		tooLow = new Bureaucrat("TooLow", 420);
+		std::cerr << "TooLow Exception ERROR " << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "ToLow Exception : " << e.what() << std::endl;
+		std::cerr << "TooLow Exception : " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 

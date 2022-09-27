@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
+
+class Form;
 
 class Intern
 {
@@ -17,5 +20,6 @@ public:
 	// Getters //
 	// Setters //
 	// Methods //
+	Form *makeForm(std::string, std::string);
 	// Exceptions //
 };

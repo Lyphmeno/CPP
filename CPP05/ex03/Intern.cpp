@@ -25,10 +25,6 @@ Intern::~Intern()
 
 Intern &Intern::operator=(const Intern &rhs)
 {
-	if (this != &rhs)
-	{
-		// ! Make copy !
-	}
 	return (*this);
 }
 
@@ -47,6 +43,12 @@ Intern &Intern::operator=(const Intern &rhs)
 /////////////////////////////
 // Methods                 //
 /////////////////////////////
+Form	*Intern::makeForm(std::string formName, std::string formTarget)
+{
+	std::string formRealName;
+	std::cout << "Intern created a " << formRealName << std::endl;
+	return (newForm);
+}
 /////////////////////////////
 // Exceptions              //
 /////////////////////////////

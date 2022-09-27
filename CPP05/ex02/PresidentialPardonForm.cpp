@@ -6,25 +6,25 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:02:22 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 12:52:13 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/27 15:43:39 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target) : Form("newPardonForm", target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string const target) : Form("newPardonForm", 25, 5), _target(target)
 {
 	if (LOG == 1)
 		std::cout << "PresidentialPardonForm default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string const &target, std::string newName) : Form(newName, target, 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string const target, std::string newName) : Form(newName, 25, 5), _target(target)
 {
 	if (LOG == 1)
 		std::cout << "PresidentialPardonForm assignation constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy) : Form(cpy)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cpy) : Form(cpy), _target(cpy._target)
 {
 	if (LOG == 1)
 		std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
@@ -46,5 +46,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::exe() const
 {
-	std::cout << this->getTarget() << " has been pardonned by Zaphod Beeblebrox" << std::endl;
+	std::cout << this->_target << " has been pardonned by Zaphod Beeblebrox" << std::endl;
 }

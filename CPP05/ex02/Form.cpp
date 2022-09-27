@@ -6,19 +6,19 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 16:20:06 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 14:24:38 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/27 15:46:19 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : _name("John Doe"), _signed(false), _signGrade(150), _exeGrade(150)
+Form::Form() : _name("John Doe"), _signGrade(150), _exeGrade(150), _signed(false)
 {
 	if (LOG == 1)
 		std::cout << "Form default constructor called" << std::endl;
 }
 
-Form::Form(std::string newName, const int toSign, const int toExe) : _signed(false)
+Form::Form(std::string newName, const int toSign, const int toExe) : _name(newName), _signGrade(toSign), _exeGrade(toExe), _signed(false)
 {
 	if (LOG == 1)
 		std::cout << "Form assignation constructor called" << std::endl;
@@ -26,26 +26,9 @@ Form::Form(std::string newName, const int toSign, const int toExe) : _signed(fal
 		throw Form::GradeTooHighException();
 	else if (toSign > 150 || toExe > 150)
 		throw Form::GradeTooLowException();
-	this->_name = newName;
-	this->_signGrade = toSign;
-	this->_exeGrade = toExe;
 }
 
-Form::Form(std::string newName, std::string newTarget, int toSign, int toExe) : _signed(false)
-{
-	if (LOG == 1)
-		std::cout << "Form target assignation constructor called" << std::endl;
-	if (toSign < 1 || toExe < 1)
-		throw Form::GradeTooHighException();
-	else if (toSign > 150 || toExe > 150)
-		throw Form::GradeTooLowException();
-	this->_name = newName;
-	this->_target = newTarget;
-	this->_signGrade = toSign;
-	this->_exeGrade = toExe;
-}
-
-Form::Form(const Form &cpy)
+Form::Form(const Form &cpy) : _name(cpy._name), _signGrade(cpy._signGrade), _exeGrade(cpy._exeGrade)
 {
 	if (LOG == 1)
 		std::cout << "Form copy constructor called" << std::endl;
@@ -53,9 +36,6 @@ Form::Form(const Form &cpy)
 		throw Form::GradeTooHighException();
 	else if (cpy._signGrade > 150 || cpy._exeGrade > 150)
 		throw Form::GradeTooLowException();
-	this->_name = cpy._name;
-	this->_signGrade = cpy._signGrade;
-	this->_exeGrade = cpy._exeGrade;
 	this->_signed = cpy._signed;
 }
 
@@ -72,12 +52,7 @@ Form &Form::operator=(const Form &rhs)
 	else if (rhs._signGrade > 150 || rhs._exeGrade > 150)
 		throw Form::GradeTooLowException();
 	if (this != &rhs)
-	{
-		this->_name = rhs.getName();
-		this->_signGrade = rhs.getSignGrade();
-		this->_exeGrade = rhs.getExeGrade();
 		this->_signed = rhs.getStatus();
-	}
 	return (*this);
 }
 
@@ -85,11 +60,6 @@ Form &Form::operator=(const Form &rhs)
 const std::string &Form::getName() const
 {
 	return (this->_name);
-}
-
-const std::string &Form::getTarget() const
-{
-	return (this->_target);
 }
 
 bool Form::getStatus() const
@@ -116,15 +86,13 @@ void Form::beSigned(const Bureaucrat &bcrat)
 		throw Form::GradeTooLowException();
 }
 
-void Form::exe() const {}
-
 void Form::execute(const Bureaucrat &executor) const
 {
 	if (!this->_signed)
 		throw Form::NotSigned();
 	else if (executor.getGrade() > this->_exeGrade)
 		throw Form::GradeTooLowException();
-	std::cout << this->_name << " is being executed "<< std::endl;
+	std::cout << this->_name << " is being executed " << std::endl;
 	this->exe();
 }
 

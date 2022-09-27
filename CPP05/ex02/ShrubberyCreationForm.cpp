@@ -6,25 +6,25 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 11:56:52 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/14 11:58:22 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/27 15:45:40 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) : Form("newCreationForm", target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) : Form("newCreationForm", 145, 137), _target(target)
 {
 	if (LOG == 1)
 		std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target, std::string newName) : Form(newName, target, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const target, std::string newName) : Form(newName, 145, 137), _target(target)
 {
 	if (LOG == 1)
 		std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy) : Form(cpy)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy) : Form(cpy), _target(cpy._target)
 {
 	if (LOG == 1)
 		std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
@@ -46,7 +46,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::exe() const
 {
-	std::string fileName = this->getTarget() + "_shrubbery";
+	std::string fileName = this->_target + "_shrubbery";
 	std::fstream treeFile;
 
 	treeFile.open(fileName.c_str(), std::fstream::in | std::fstream::out | std::fstream::app);

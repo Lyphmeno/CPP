@@ -6,11 +6,12 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/09 15:17:11 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/27 15:49:45 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -20,8 +21,6 @@ int main()
 	Bureaucrat *bureaucrat = new Bureaucrat("Cronos", 2);
 	Bureaucrat *stagiaire = new Bureaucrat("Rhea", 149);
 	Bureaucrat *alternant = new Bureaucrat("Mnemosyne", 138);
-	Form *aForm = new Form();
-	Form *bForm = new Form("Koyos", 137, 2);
 	Form *treeTest = new ShrubberyCreationForm("treeFile", "Persephone");
 	Form *presTest = new PresidentialPardonForm("Eros", "Zeus");
 	Form *roboTest = new RobotomyRequestForm("Rosemary Kennedy", "Hephaistos");
@@ -78,43 +77,6 @@ int main()
 	}
 	std::cout << std::endl;
 
-	Form *cForm;
-	try
-	{
-		cForm = new Form("Themis", 140, 0);
-		std::cerr << "Themis Exception ERROR " << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Themis Exception : " << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-
-	std::cout << *alternant;
-	std::cout << *bForm;
-	try
-	{
-		alternant->signForm(*bForm);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Mnemosyne Exception : " << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-
-	alternant->promote();
-	std::cout << *alternant;
-	std::cout << *bForm;
-	try
-	{
-		alternant->signForm(*bForm);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Mnemosyne Exception : " << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-
 	try
 	{
 		alternant->executeForm(*treeTest);
@@ -136,6 +98,8 @@ int main()
 		std::cerr << "Persephone Sign Exception : " << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+	alternant->promote();
+	std::cout << *alternant;
 	std::cout << *treeTest;
 
 	try
@@ -176,8 +140,6 @@ int main()
 	delete presTest;
 	delete roboTest;
 	delete treeTest;
-	delete aForm;
-	delete bForm;
 	delete alternant;
 	delete bureaucrat;
 	delete stagiaire;

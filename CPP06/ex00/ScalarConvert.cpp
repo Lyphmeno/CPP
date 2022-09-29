@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/23 15:00:30 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/29 16:23:23 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ ScalarConvert::ScalarConvert()
 	this->_intType = 0;
 	this->_floatType = 0;
 	this->_doubleType = 0;
+	this->_overflow = false;
 	this->_typeValue = 0;
 }
 
@@ -37,6 +38,7 @@ ScalarConvert::ScalarConvert(const ScalarConvert &cpy)
 	this->_intType = cpy._intType;
 	this->_floatType = cpy._floatType;
 	this->_doubleType = cpy._doubleType;
+	this->_overflow = cpy._overflow;
 	this->_typeValue = cpy._typeValue;
 }
 
@@ -55,6 +57,7 @@ ScalarConvert &ScalarConvert::operator=(const ScalarConvert &rhs)
 		this->_intType = rhs._intType;
 		this->_floatType = rhs._floatType;
 		this->_doubleType = rhs._doubleType;
+		this->_overflow = rhs._overflow;
 		this->_typeValue = rhs._typeValue;
 	}
 	return (*this);
@@ -65,53 +68,31 @@ ScalarConvert &ScalarConvert::operator=(const ScalarConvert &rhs)
 /////////////////////////////
 // Getters                 //
 /////////////////////////////
-char ScalarConvert::getCharType()
-{
-	return this->_charType;
-}
+char ScalarConvert::getCharType() { return this->_charType; }
 
-int ScalarConvert::getIntType()
-{
-	return this->_intType;
-}
+int ScalarConvert::getIntType() { return this->_intType; }
 
-float ScalarConvert::getFloatType()
-{
-	return this->_floatType;
-}
+float ScalarConvert::getFloatType() { return this->_floatType; }
 
-double ScalarConvert::getDoubleType()
-{
-	return this->_doubleType;
-}
+double ScalarConvert::getDoubleType() { return this->_doubleType; }
 
-int ScalarConvert::getTypeValue()
-{
-	return this->_typeValue;
-}
+bool ScalarConvert::getOverflow() { return this->_overflow; }
+
+int ScalarConvert::getTypeValue() { return this->_typeValue; }
 /////////////////////////////
 // Setters                 //
 /////////////////////////////
-void ScalarConvert::setCharType(const char c)
-{
-	this->_charType = c;
-}
-void ScalarConvert::setIntType(const int val)
-{
-	this->_intType = val;
-}
-void ScalarConvert::setFloatType(const float val)
-{
-	this->_floatType = val;
-}
-void ScalarConvert::setDoubleType(const double val)
-{
-	this->_doubleType = val;
-}
-void ScalarConvert::setTypeValue(const int val)
-{
-	this->_typeValue = val;
-}
+void ScalarConvert::setCharType(const char c) { this->_charType = c; }
+
+void ScalarConvert::setIntType(const int val) { this->_intType = val; }
+
+void ScalarConvert::setFloatType(const float val) { this->_floatType = val; }
+
+void ScalarConvert::setDoubleType(const double val) { this->_doubleType = val; }
+
+void ScalarConvert::setOverflow(const bool val) { this->_overflow = val; }
+
+void ScalarConvert::setTypeValue(const int val) { this->_typeValue = val; }
 /////////////////////////////
 // Ooperators              //
 /////////////////////////////
@@ -130,7 +111,6 @@ void ScalarConvert::findType(char *str)
 
 	if (isPsdLit(this->_baseStr))
 	{
-		std::cout << "Is a LIT PSEUDO !" << std::endl;
 		this->setTypeValue(PSDLIT);
 		return;
 	}
@@ -151,29 +131,27 @@ void ScalarConvert::findType(char *str)
 	if (i == 1 && !hasDig)
 	{
 		this->setTypeValue(CHAR);
-		this->_charType = std::atoi(str);
-		std::cout << "Is a CHAR : " << this->_charType << std::endl;
+		this->_charType = str[0];
 	}
 	else if (hasDot == 1 && hasDig && hasFlt)
 	{
 		this->setTypeValue(FLOAT);
 		this->_floatType = std::strtof(str, NULL);
-		std::cout << "Is a FLOAT : " << this->_floatType << std::endl;
 	}
-	else if (hasDot == 1 && hasDig && !hasFlt)
+	else if (hasDot == 1 && hasDig && !hasFlt && !hasLtr)
 	{
 		this->setTypeValue(DOUBLE);
 		this->_doubleType = std::strtod(str, NULL);
-		std::cout << "Is a DOUBLE : " << this->_doubleType << std::endl;
 	}
 	else if (!hasDot && hasDig && !hasFlt && !hasLtr)
 	{
+		this->setTypeValue(INT);
 		if (std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX)
 		{
-			this->setTypeValue(INT);
-			this->_intType = std::atoi(str);
-			std::cout << "Is a INT : " << this->_intType << std::endl;
+			this->_intType = std::atoi(this->_baseStr.c_str());
 		}
+		else
+			this->_overflow = true;
 	}
 	else
 		this->setTypeValue(NONE);
@@ -211,28 +189,68 @@ void ScalarConvert::castAll()
 
 void ScalarConvert::printChar()
 {
-	if (this->_typeValue == PSDLIT)
-		std::cout << "char: impossible" << std::endl;
+	std::cout << "char: ";
+	if (this->_typeValue == PSDLIT || this->_typeValue == NONE)
+		std::cout << "impossible" << std::endl;
 	else if (this->_charType < 33 || this->_charType > 126)
-		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << "char: " << this->_charType << std::endl;
+		std::cout << "'" << this->_charType << "'" << std::endl;
 }
 
 void ScalarConvert::printInt()
 {
-	if (this->_typeValue == PSDLIT)
-		std::cout << "int: impossible" << std::endl;
+	std::cout << "int: ";
+	if (this->_typeValue == PSDLIT || this->_typeValue == NONE)
+		std::cout << "impossible" << std::endl;
+	else if (this->_overflow)
+		std::cout << "overflow" << std::endl;
 	else
-		std::cout << "int: " << this->_intType << std::endl;
+		std::cout << this->_intType << std::endl;
+}
+
+void ScalarConvert::printFloat()
+{
+	std::cout << "float: ";
+	if (this->_typeValue == NONE)
+		std::cout << "float: impossible" << std::endl;
+	else if (this->_typeValue == PSDLIT)
+	{
+		if (this->_baseStr == "+inf" || this->_baseStr == "-inf" || this->_baseStr == "nan")
+			std::cout << this->_baseStr << "f" << std::endl;
+		else
+			std::cout << this->_baseStr << std::endl;
+	}
+	else if (std::strtol(this->_baseStr.c_str(), NULL, 10) >= INT_MIN && std::strtol(this->_baseStr.c_str(), NULL, 10) <= INT_MAX)
+		std::cout << std::fixed << std::setprecision(1) << this->_floatType << "f" << std::endl;
+	else
+		std::cout << this->_floatType << "f" << std::endl;
+}
+
+void ScalarConvert::printDouble()
+{
+	std::cout << "double: ";
+	if (this->_typeValue == NONE)
+		std::cout << "impossible" << std::endl;
+	else if (this->_typeValue == PSDLIT)
+	{
+		if (this->_baseStr == "+inf" || this->_baseStr == "-inf" || this->_baseStr == "nan")
+			std::cout << this->_baseStr << std::endl;
+		else
+			std::cout << this->_baseStr.substr(0, this->_baseStr.size() - 1) << std::endl;
+	}
+	else if (std::strtol(this->_baseStr.c_str(), NULL, 10) >= INT_MIN && std::strtol(this->_baseStr.c_str(), NULL, 10) <= INT_MAX)
+		std::cout << std::fixed << std::setprecision(1) << this->_doubleType << std::endl;
+	else
+		std::cout << this->_doubleType << std::endl;
 }
 
 void ScalarConvert::printAll()
 {
 	printChar();
 	printInt();
-	std::cout << "float: " << this->_floatType << std::endl;
-	std::cout << "double: " << this->_doubleType << std::endl;
+	printFloat();
+	printDouble();
 }
 
 bool ScalarConvert::isPsdLit(std::string str)

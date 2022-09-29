@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/23 14:59:36 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:18:57 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <cstdlib>
 #include <climits>
 #include <string>
+#include <sstream>
 
 #define NONE 0
 #define CHAR 1
@@ -33,6 +34,7 @@ private:
 	int _intType;
 	float _floatType;
 	double _doubleType;
+	bool _overflow;
 	int _typeValue;
 
 public:
@@ -48,12 +50,14 @@ public:
 	int getIntType();
 	float getFloatType();
 	double getDoubleType();
+	bool getOverflow();
 	int getTypeValue();
 	// Setters //
 	void setCharType(const char c);
 	void setIntType(const int val);
 	void setFloatType(const float val);
 	void setDoubleType(const double val);
+	void setOverflow(const bool val);
 	void setTypeValue(const int val);
 	// Methods //
 	void findType(char *str);
@@ -61,6 +65,8 @@ public:
 	void castAll();
 	void printChar();
 	void printInt();
+	void printFloat();
+	void printDouble();
 	void printAll();
 	// Exceptions //
 	class ExWrongInput : public std::exception

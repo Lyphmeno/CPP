@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 class Form;
 
@@ -20,6 +23,6 @@ public:
 	// Getters //
 	// Setters //
 	// Methods //
-	Form *makeForm(std::string, std::string);
+	Form *makeForm(const std::string&, const std::string&);
 	// Exceptions //
 };

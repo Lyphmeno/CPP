@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/06 14:02:19 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/29 13:09:30 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ int main()
         std::cerr << "[2] Exception : " << e.what() << std::endl;
     }
 
-    Bureaucrat* toHigh;
-    Bureaucrat* toLow;
+    Bureaucrat* tooHigh;
+    Bureaucrat* tooLow;
 
     try
     {
-        toHigh = new Bureaucrat("ToHigh", 0);
+        tooHigh = new Bureaucrat("TooHigh", 0);
         std::cerr << "[+][3] Exception isn't working nicely. " << std::endl;
     }
     catch (std::exception & e)
@@ -58,7 +58,7 @@ int main()
     
     try
     {
-        toLow = new Bureaucrat("ToLow", 420);
+        tooLow = new Bureaucrat("TooLow", 420);
         std::cerr << "[+][4] Exception isn't working nicely. " << std::endl;
     }
     catch (std::exception & e)

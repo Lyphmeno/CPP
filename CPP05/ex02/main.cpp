@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/21 16:30:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/29 12:32:18 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/29 13:08:24 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main()
 	try
 	{
 		tooHigh = new Bureaucrat("TooHigh", 0);
-		std::cerr << "ToHigh Exception ERROR " << std::endl;
+		std::cerr << "TooHigh Exception ERROR " << std::endl;
 	}
 	catch (std::exception &e)
 	{

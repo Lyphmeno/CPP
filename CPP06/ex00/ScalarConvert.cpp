@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/29 16:23:23 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/30 15:13:26 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,30 +128,34 @@ void ScalarConvert::findType(char *str)
 			hasLtr++;
 		i++;
 	}
+	if (!(hasDot == 1 && str[0] != '.'))
+		hasDot = 0;
 	if (i == 1 && !hasDig)
 	{
 		this->setTypeValue(CHAR);
 		this->_charType = str[0];
 	}
-	else if (hasDot == 1 && hasDig && hasFlt)
+	else if (hasDot == 1 && str[i - 2] != '.' && hasDig && hasFlt)
 	{
 		this->setTypeValue(FLOAT);
 		this->_floatType = std::strtof(str, NULL);
+		if (!(std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX))
+			this->_overflow = true;
 	}
-	else if (hasDot == 1 && hasDig && !hasFlt && !hasLtr)
+	else if (hasDot == 1 && str[i - 1] != '.' && hasDig && !hasFlt)
 	{
 		this->setTypeValue(DOUBLE);
 		this->_doubleType = std::strtod(str, NULL);
+		if (!(std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX))
+			this->_overflow = true;
 	}
 	else if (!hasDot && hasDig && !hasFlt && !hasLtr)
 	{
-		this->setTypeValue(INT);
 		if (std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX)
 		{
+			this->setTypeValue(INT);
 			this->_intType = std::atoi(this->_baseStr.c_str());
 		}
-		else
-			this->_overflow = true;
 	}
 	else
 		this->setTypeValue(NONE);
@@ -213,7 +217,7 @@ void ScalarConvert::printFloat()
 {
 	std::cout << "float: ";
 	if (this->_typeValue == NONE)
-		std::cout << "float: impossible" << std::endl;
+		std::cout << "impossible" << std::endl;
 	else if (this->_typeValue == PSDLIT)
 	{
 		if (this->_baseStr == "+inf" || this->_baseStr == "-inf" || this->_baseStr == "nan")
@@ -222,7 +226,8 @@ void ScalarConvert::printFloat()
 			std::cout << this->_baseStr << std::endl;
 	}
 	else if (std::strtol(this->_baseStr.c_str(), NULL, 10) >= INT_MIN && std::strtol(this->_baseStr.c_str(), NULL, 10) <= INT_MAX)
-		std::cout << std::fixed << std::setprecision(1) << this->_floatType << "f" << std::endl;
+		std::cout
+			<< std::fixed << std::setprecision(1) << this->_floatType << "f" << std::endl;
 	else
 		std::cout << this->_floatType << "f" << std::endl;
 }
@@ -270,5 +275,5 @@ const char *ScalarConvert::ExWrongInput::what() const throw()
 
 const char *ScalarConvert::ExWrongValue::what() const throw()
 {
-	return ("Value entered is WRONG !");
+	return ("Value entered is not valid, please enter one of those types :\nCHAR, INT, FlOAT, DOUBLE");
 }

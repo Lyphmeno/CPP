@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/29 15:18:57 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/09/30 10:01:38 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <climits>
+#include <limits>
 #include <string>
 #include <sstream>
 

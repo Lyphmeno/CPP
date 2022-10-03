@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   reintCast.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 16:39:02 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/03 12:48:49 by hlevi            ###   ########.fr       */
+/*   Created: 2022/10/03 12:41:12 by hlevi             #+#    #+#             */
+/*   Updated: 2022/10/03 12:49:09 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Data.hpp"
 
-#include <iostream>
-#include <string>
-#include <stdint.h>
-
-typedef struct
+uintptr_t serialize(Data *ptr)
 {
-	int _intTest;
-	std::string _strTest;
-} Data;
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
 
-uintptr_t serialize(Data *ptr);
-Data *deserialize(uintptr_t raw);
+Data *deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data*>(raw));
+}

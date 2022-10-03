@@ -6,27 +6,23 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:12 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/30 18:03:43 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/03 13:00:47 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
 
-uintptr_t serialize(Data *ptr);
-{
-	return ();
-}
-
-Data *deserialize(uintptr_t *ptr);
-
 int	main()
 {
-	// Should try to reinterpret_cast for the uintptr_t
-	// It seems to be the only way to cast within this type
-	Data dataTest;
-	uintptr_t newUIntPtr;
+	Data		*dataPtr = new Data;
+	Data		*newDataPtr;
+	uintptr_t	raw;
 
-	std::cout << "data address : " << &dataTest << std::endl;
-	newUIntPtr = serialize(&dataTest);
+	dataPtr->_strTest = "test";
+	dataPtr->_intTest = 42;
+	std::cout << "dataPtr = " << dataPtr->_strTest << " | " << dataPtr->_intTest << std::endl;
+	raw = serialize(dataPtr);
+	newDataPtr = deserialize(raw);
+	std::cout << "newDataPtr = " << newDataPtr->_strTest << " | " << newDataPtr->_intTest << std::endl;
 	return (0);
 }

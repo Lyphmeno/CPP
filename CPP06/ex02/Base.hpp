@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#define LOG 0
 
 class Base
 {

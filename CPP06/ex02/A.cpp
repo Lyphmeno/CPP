@@ -1,5 +1,4 @@
 #include "A.hpp"
-#define LOG 0
 
 /////////////////////////////
 // Coplien                 //

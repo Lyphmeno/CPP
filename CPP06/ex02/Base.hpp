@@ -2,20 +2,27 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #define LOG 0
 
 class Base
 {
 private:
 public:
-	virtual ~Base() = 0;
+	virtual ~Base() {};
 };
 
-class A: class Base {};
+class A : public Base
+{
+};
 
-class B: class Base {};
+class B : public Base
+{
+};
 
-class C: class Base {};
+class C : public Base
+{
+};
 
 Base *generate(void);
 

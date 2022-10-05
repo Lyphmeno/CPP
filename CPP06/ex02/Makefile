@@ -1,4 +1,4 @@
-NAME	=	
+NAME	=	Base
 SRC		=	$(shell find . -type f -name "*.cpp")
 HEADERS	=	$(shell find . -type f -name "*.hpp")
 OBJ		=	$(patsubst %.cpp, %.o, $(SRC))

@@ -8,12 +8,17 @@ class Base
 {
 private:
 public:
-	// Coplien //
 	virtual ~Base() = 0;
-	// Assignation contructors //
-	// Operators //
-	// Getters //
-	// Setters //
-	// Methods //
-	// Exceptions //
 };
+
+class A: class Base {};
+
+class B: class Base {};
+
+class C: class Base {};
+
+Base *generate(void);
+
+void identify(Base *p);
+
+void identify(Base &p);

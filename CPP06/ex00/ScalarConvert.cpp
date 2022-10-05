@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/30 15:13:26 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/05 15:59:38 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ ScalarConvert::ScalarConvert()
 	this->_intType = 0;
 	this->_floatType = 0;
 	this->_doubleType = 0;
-	this->_overflow = false;
+	this->_ioverflow = false;
+	this->_coverflow = false;
 	this->_typeValue = 0;
 }
 
@@ -38,7 +39,8 @@ ScalarConvert::ScalarConvert(const ScalarConvert &cpy)
 	this->_intType = cpy._intType;
 	this->_floatType = cpy._floatType;
 	this->_doubleType = cpy._doubleType;
-	this->_overflow = cpy._overflow;
+	this->_ioverflow = cpy._ioverflow;
+	this->_coverflow = cpy._coverflow;
 	this->_typeValue = cpy._typeValue;
 }
 
@@ -57,7 +59,8 @@ ScalarConvert &ScalarConvert::operator=(const ScalarConvert &rhs)
 		this->_intType = rhs._intType;
 		this->_floatType = rhs._floatType;
 		this->_doubleType = rhs._doubleType;
-		this->_overflow = rhs._overflow;
+		this->_ioverflow = rhs._ioverflow;
+		this->_coverflow = rhs._coverflow;
 		this->_typeValue = rhs._typeValue;
 	}
 	return (*this);
@@ -76,7 +79,9 @@ float ScalarConvert::getFloatType() { return this->_floatType; }
 
 double ScalarConvert::getDoubleType() { return this->_doubleType; }
 
-bool ScalarConvert::getOverflow() { return this->_overflow; }
+bool ScalarConvert::getIOverflow() { return this->_ioverflow; }
+
+bool ScalarConvert::getCOverflow() { return this->_coverflow; }
 
 int ScalarConvert::getTypeValue() { return this->_typeValue; }
 /////////////////////////////
@@ -90,7 +95,9 @@ void ScalarConvert::setFloatType(const float val) { this->_floatType = val; }
 
 void ScalarConvert::setDoubleType(const double val) { this->_doubleType = val; }
 
-void ScalarConvert::setOverflow(const bool val) { this->_overflow = val; }
+void ScalarConvert::setIOverflow(const bool val) { this->_ioverflow = val; }
+
+void ScalarConvert::setCOverflow(const bool val) { this->_coverflow = val; }
 
 void ScalarConvert::setTypeValue(const int val) { this->_typeValue = val; }
 /////////////////////////////
@@ -128,7 +135,7 @@ void ScalarConvert::findType(char *str)
 			hasLtr++;
 		i++;
 	}
-	if (!(hasDot == 1 && str[0] != '.'))
+	if (!(hasDot == 1))
 		hasDot = 0;
 	if (i == 1 && !hasDig)
 	{
@@ -140,14 +147,18 @@ void ScalarConvert::findType(char *str)
 		this->setTypeValue(FLOAT);
 		this->_floatType = std::strtof(str, NULL);
 		if (!(std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX))
-			this->_overflow = true;
+			this->_ioverflow = true;
+		if (!(std::strtol(str, NULL, 10) >= 0 && std::strtol(str, NULL, 10) <= 127))
+			this->_coverflow = true;
 	}
 	else if (hasDot == 1 && str[i - 1] != '.' && hasDig && !hasFlt)
 	{
 		this->setTypeValue(DOUBLE);
 		this->_doubleType = std::strtod(str, NULL);
 		if (!(std::strtol(str, NULL, 10) >= INT_MIN && std::strtol(str, NULL, 10) <= INT_MAX))
-			this->_overflow = true;
+			this->_ioverflow = true;
+		if (!(std::strtol(str, NULL, 10) >= 0 && std::strtol(str, NULL, 10) <= 127))
+			this->_coverflow = true;
 	}
 	else if (!hasDot && hasDig && !hasFlt && !hasLtr)
 	{
@@ -156,6 +167,8 @@ void ScalarConvert::findType(char *str)
 			this->setTypeValue(INT);
 			this->_intType = std::atoi(this->_baseStr.c_str());
 		}
+		if (!(std::strtol(str, NULL, 10) >= 0 && std::strtol(str, NULL, 10) <= 127))
+			this->_coverflow = true;
 	}
 	else
 		this->setTypeValue(NONE);
@@ -196,6 +209,8 @@ void ScalarConvert::printChar()
 	std::cout << "char: ";
 	if (this->_typeValue == PSDLIT || this->_typeValue == NONE)
 		std::cout << "impossible" << std::endl;
+	else if (this->_coverflow)
+		std::cout << "over/under flow" << std::endl;
 	else if (this->_charType < 33 || this->_charType > 126)
 		std::cout << "Non displayable" << std::endl;
 	else
@@ -207,8 +222,8 @@ void ScalarConvert::printInt()
 	std::cout << "int: ";
 	if (this->_typeValue == PSDLIT || this->_typeValue == NONE)
 		std::cout << "impossible" << std::endl;
-	else if (this->_overflow)
-		std::cout << "overflow" << std::endl;
+	else if (this->_ioverflow)
+		std::cout << "over/under flow" << std::endl;
 	else
 		std::cout << this->_intType << std::endl;
 }

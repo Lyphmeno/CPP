@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:24 by hlevi             #+#    #+#             */
-/*   Updated: 2022/09/30 10:01:38 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/05 15:54:26 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ private:
 	int _intType;
 	float _floatType;
 	double _doubleType;
-	bool _overflow;
+	bool _ioverflow;
+	bool _coverflow;
 	int _typeValue;
 
 public:
@@ -51,14 +52,16 @@ public:
 	int getIntType();
 	float getFloatType();
 	double getDoubleType();
-	bool getOverflow();
+	bool getIOverflow();
+	bool getCOverflow();
 	int getTypeValue();
 	// Setters //
 	void setCharType(const char c);
 	void setIntType(const int val);
 	void setFloatType(const float val);
 	void setDoubleType(const double val);
-	void setOverflow(const bool val);
+	void setIOverflow(const bool val);
+	void setCOverflow(const bool val);
 	void setTypeValue(const int val);
 	// Methods //
 	void findType(char *str);

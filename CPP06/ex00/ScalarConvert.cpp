@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:18:20 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/05 15:59:38 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/05 16:43:13 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,8 +241,7 @@ void ScalarConvert::printFloat()
 			std::cout << this->_baseStr << std::endl;
 	}
 	else if (std::strtol(this->_baseStr.c_str(), NULL, 10) >= INT_MIN && std::strtol(this->_baseStr.c_str(), NULL, 10) <= INT_MAX)
-		std::cout
-			<< std::fixed << std::setprecision(1) << this->_floatType << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << this->_floatType << "f" << std::endl;
 	else
 		std::cout << this->_floatType << "f" << std::endl;
 }

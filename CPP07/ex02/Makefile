@@ -1,10 +1,10 @@
-NAME	=	array
-SRC		=	$(shell find . -type f -name "*.cpp")
-HEADERS	=	$(shell find . -type f -name "*.hpp")
-OBJ		=	$(patsubst %.cpp, %.o, $(SRC))
+NAME		:=	array
+SRC			:=	$(shell find . -type f -name "*.cpp")
+HEADERS		:=	$(shell find . -type f -name "*.hpp")
+OBJ			:=	$(patsubst %.cpp, %.o, $(SRC))
 
-CC		=	c++
-FLAGS	=	-Wall -Wextra -Werror -std=c++98
+CC		:=	c++
+FLAGS	:=	-Wall -Wextra -Werror -std=c++98
 
 .PHONY:	all
 all:		$(NAME)
@@ -32,15 +32,15 @@ re:			fclean all
 
 
 #  ---------- PROGRESS BAR ----------
-_STOP		=	\e[0m
-_PINK		=	\033[38;5;223m\e[1m
-_ORANGE		=	\033[38;5;209m\e[1m
-_CREAM		=	\033[38;5;${VAL}m\e[1m
-VAL			=	76
-INDEX		=	2
-BUILD_SIZE	=	$(shell find . -type f -name "*.cpp"  | wc -l)
-PRC			=	0
-progress	=	0
+_STOP		:=	\e[0m
+_PINK		:=	\033[38;5;223m\e[1m
+_ORANGE		:=	\033[38;5;209m\e[1m
+_CREAM		:=	\033[38;5;${VAL}m\e[1m
+VAL			:=	76
+INDEX		:=	2
+BUILD_SIZE	:=	$(shell find . -type f -name "*.cpp" | wc -l)
+PRC			:=	0
+progress	:=	0
 
 define update_bar =
     progress	=	$(shell echo "$(INDEX) / ($(BUILD_SIZE) / 20)" | bc -l)

@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:12:46 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/07 18:53:05 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/11 14:38:37 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <stdexcept>
+#define LOG 1
 
 template <typename T>
 class Array

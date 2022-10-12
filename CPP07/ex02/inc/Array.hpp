@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:12:46 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/11 14:38:37 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/12 15:19:07 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <cstdlib>
 #include <string>
 #include <stdexcept>
-#define LOG 1
+
+#define LOG 0
 
 template <typename T>
 class Array
@@ -30,7 +31,7 @@ public:
 	Array();
 	Array(const Array<T> &cpy);
 	virtual ~Array();
-	Array<T> &operator=(Array<T> rhs);
+	Array<T> &operator=(Array<T> &rhs);
 	// Assignation contructors //
 	Array(unsigned int n);
 	// Operators //

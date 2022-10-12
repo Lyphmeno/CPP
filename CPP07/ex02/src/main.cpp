@@ -6,17 +6,18 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:17:49 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/11 14:36:20 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/12 15:21:50 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 10
 int main(int, char **)
 {
 	Array<int> numbers(MAX_VAL);
-	Array<int> tmp = numbers;
+	Array<int> tmp;
+	tmp = numbers;
 	Array<int> test(tmp);
 
 	int *mirror = new int[MAX_VAL];
@@ -27,6 +28,8 @@ int main(int, char **)
 		const int value = rand();
 		numbers[i] = value;
 		mirror[i] = value;
+		std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
+		std::cout << "mirror[" << i << "] = " << mirror[i] << std::endl;
 	}
 	for (int i = 0; i < MAX_VAL; i++)
 	{
@@ -38,6 +41,7 @@ int main(int, char **)
 	}
 	try
 	{
+		// Shouldn't work
 		numbers[-2] = 0;
 	}
 	catch (const std::exception &e)
@@ -46,6 +50,7 @@ int main(int, char **)
 	}
 	try
 	{
+		// Shouldn't work
 		numbers[MAX_VAL] = 0;
 	}
 	catch (const std::exception &e)
@@ -56,6 +61,7 @@ int main(int, char **)
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		numbers[i] = rand();
+		std::cout << "numbers[" << i << "] = " << numbers[i] << std::endl;
 	}
 	delete[] mirror; //
 	return 0;

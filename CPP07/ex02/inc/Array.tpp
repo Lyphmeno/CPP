@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:13:42 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/11 14:38:33 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/12 15:22:00 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // Coplien                 //
 /////////////////////////////
 template <typename T>
-Array<T>::Array() : _array(NULL), _size(0)
+Array<T>::Array() : _array(new T[0]), _size(0)
 {
 	if (LOG)
 		std::cout << "Default constructor called" << std::endl;
@@ -39,7 +39,7 @@ Array<T>::~Array()
 }
 
 template <typename T>
-Array<T> &Array<T>::operator=(Array<T> rhs)
+Array<T> &Array<T>::operator=(Array<T> &rhs)
 {
 	if (LOG)
 		std::cout << "Operator= called" << std::endl;
@@ -49,7 +49,7 @@ Array<T> &Array<T>::operator=(Array<T> rhs)
 		delete[] this->_array;
 	this->_size = rhs.size();
 	this->_array = new T[this->_size];
-	for (int i = 0; i < this->_size; i++)
+	for (unsigned int i = 0; i < this->_size; i++)
 		this->_array[i] = rhs[i];
 	return *this;
 }

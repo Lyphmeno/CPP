@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:47:52 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/07 13:25:35 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/12 13:56:15 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ int main()
 	std::cout << "c = |" << c << "|    et d = |" << d << "|" << std::endl;
 	std::cout << "e = |" << e << "| et f = |" << f << "|" << std::endl;
 	std::cout << std::endl;
-	swap(a, b);
+	::swap(a, b);
 	std::cout << "swap a/b" << std::endl;
 	std::cout << "a = |" << a << "| et b = |" << b << "|" << std::endl;
 	std::cout << "max a & b = " << max(a, b) << std::endl;
 	std::cout << "min a & b = " << min(a, b) << std::endl;
 	std::cout << std::endl;
-	swap(c, d);
+	::swap(c, d);
 	std::cout << "swap c/d" << std::endl;
 	std::cout << "c = |" << c << "| et d = |" << d << "|" << std::endl;
 	std::cout << "max c & d = " << max(c, d) << std::endl;
 	std::cout << "min c & d = " << min(c, d) << std::endl;
 	std::cout << std::endl;
-	swap(e, f);
+	::swap(e, f);
 	std::cout << "swap e/f" << std::endl;
 	std::cout << "e = |" << e << "| et f = |" << f << "|" << std::endl;
 	std::cout << "max e & f = " << max(e, f) << std::endl;

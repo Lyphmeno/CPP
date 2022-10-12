@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:13:42 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/12 15:22:00 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/12 15:59:02 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Array<T> &Array<T>::operator=(Array<T> &rhs)
 		std::cout << "Operator= called" << std::endl;
 	if (this == &rhs)
 		return *this;
-	if (this->_size > 0)
+	if (this->_array != NULL)
 		delete[] this->_array;
 	this->_size = rhs.size();
 	this->_array = new T[this->_size];

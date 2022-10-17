@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:51:47 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/14 17:02:50 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/17 12:41:54 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int main()
 	int size = 10;
 	Span testV(size - 1);
 	Span testV2(100);
-	std::vector<int>::iterator start = testV2.getVectorAddr().begin();
-	std::vector<int>::iterator end = testV2.getVectorAddr().end();
-	
+
 	while (size != 0)
 	{
 		try
@@ -35,6 +33,7 @@ int main()
 	}
 	try
 	{
+		testV.displayVector();
 		std::cout << testV.shortestSpan() << std::endl;
 		std::cout << testV.longestSpan() << std::endl;
 	}
@@ -45,7 +44,8 @@ int main()
 
 	try
 	{
-		testV2.addNumbers(start, end, 5);
+		testV2.addNumbers(testV.getVectorAddr().begin(), testV.getVectorAddr().end());
+		testV2.displayVector();
 	}
 	catch (const std::exception &e)
 	{

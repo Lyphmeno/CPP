@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:50:18 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/14 17:01:22 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/17 12:49:03 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Span &Span::operator=(const Span &rhs)
 /////////////////////////////
 // Assignation contructors //
 /////////////////////////////
-Span::Span(unsigned int N) : _maxSize(N)
+Span::Span(unsigned int N) : _maxSize(N), _intV(std::vector<int>())
 {
 	if (LOG == 1)
 		std::cout << "Span Assignation constructor called" << std::endl;
@@ -63,21 +63,21 @@ std::vector<int> &Span::getVectorAddr()
 /////////////////////////////
 // Methods                 //
 /////////////////////////////
+void Span::displayVector()
+{
+	std::vector<int>::iterator it = this->_intV.begin();
+
+	for (; it < this->_intV.end(); it++)
+		std::cout << *it << " | ";
+	std::cout << std::endl;
+}
+
 void Span::addNumber(int num)
 {
 	if (this->_intV.size() < this->_maxSize)
 		this->_intV.push_back(num);
 	else
 		throw Span::TooMuchNumber();
-}
-
-void Span::addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end, int num)
-{
-	// Avoid the infinite loop
-	if (end < start)
-		return;
-	for (std::vector<int>::iterator i = start; i != end; i++)
-		addNumber(num);
 }
 
 long long Span::shortestSpan()

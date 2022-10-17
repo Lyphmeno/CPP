@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:50:19 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/14 16:59:10 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/17 12:49:05 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,16 @@ public:
 	std::vector<int> &getVectorAddr();
 	// Setters //
 	// Methods //
+	void displayVector();
 	void addNumber(int num);
-	void addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end, int num);
+	template <typename InputInterator>
+	void addNumbers(InputInterator first, InputInterator last)
+	{
+		if (this->_intV.size() + std::distance(first, last) > this->_maxSize)
+			throw Span::TooMuchNumber();
+		else
+			this->_intV.insert(this->_intV.begin(), first, last);
+	}
 	long long shortestSpan();
 	long long longestSpan();
 	// Exceptions //

@@ -6,13 +6,13 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:58:33 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/13 16:40:25 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:22:05 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/easyfind.hpp"
 
-int	main()
+int main()
 {
 	std::vector<int> testVector;
 	std::list<int> testList;
@@ -31,7 +31,15 @@ int	main()
 	testList.push_back(50);
 	testList.push_back(50);
 
-	std::cout << *(easyfind(testVector, 105)) << std::endl;
-	std::cout << *(easyfind(testList, 4)) << std::endl;
+	try
+	{
+		std::cout << *(easyfind(testVector, 50)) << std::endl;
+		std::cout << *(easyfind(testList, 4)) << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return (0);
 }

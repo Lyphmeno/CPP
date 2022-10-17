@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:44:53 by hlevi             #+#    #+#             */
-/*   Updated: 2022/10/13 16:41:56 by hlevi            ###   ########.fr       */
+/*   Updated: 2022/10/17 17:21:53 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ typename T::const_iterator easyfind(const T &container, int num)
 		if (*i == num)
 			return (i);
 	}
-	return (i);
+	throw std::invalid_argument("Error : Value not found");
 }

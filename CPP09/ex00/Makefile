@@ -23,7 +23,7 @@ all: $(NAME)
 
 $(NAME):	$(OBJDIR) $(OBJS) $(HEADERS) Makefile
 			@echo -ne '    \033c$(E_BAR)\n'
-			$(CXX) $(CXFLAGS) -o $(NAME) $(OBJS) 
+			@$(CXX) $(CXFLAGS) -o $(NAME) $(OBJS) 
 
 $(OBJDIR):
 			@mkdir -p $(OBJDIR)

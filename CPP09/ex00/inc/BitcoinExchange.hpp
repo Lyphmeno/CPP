@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lyfmeno <lyfmeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:21:19 by hlevi             #+#    #+#             */
-/*   Updated: 2023/03/16 16:19:41 by hlevi            ###   ########.fr       */
+/*   Updated: 2023/04/03 12:04:17 by lyfmeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <exception>
 #include <iostream>
+#include <sstream>
 #include <map>
 
 class BitcoinExchange
@@ -36,10 +37,11 @@ public:
 	~BitcoinExchange();
 	BitcoinExchange &operator=(const BitcoinExchange &rhs);
 	// Assignation contructors //
-	BitcoinExchange(int, char*);
+	BitcoinExchange(int, char**);
 	// Operators //
 	// Getters //
 	// Setters //
 	// Methods //
+	void	fillMap();
 	// Exceptions //
 };

@@ -6,7 +6,7 @@
 /*   By: lyfmeno <lyfmeno@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:21:19 by hlevi             #+#    #+#             */
-/*   Updated: 2023/04/03 12:04:17 by lyfmeno          ###   ########.fr       */
+/*   Updated: 2023/04/03 12:24:13 by lyfmeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ public:
 	// Getters //
 	// Setters //
 	// Methods //
-	void	fillMap();
+	void	printDb();
+	void	fillDb();
 	// Exceptions //
 };

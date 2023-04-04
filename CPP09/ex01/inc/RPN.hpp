@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:20:28 by hlevi             #+#    #+#             */
-/*   Updated: 2023/04/04 12:29:36 by hlevi            ###   ########.fr       */
+/*   Created: 2023/04/04 12:28:53 by lyfmeno           #+#    #+#             */
+/*   Updated: 2023/04/04 12:35:24 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/BitcoinExchange.hpp"
+#pragma once
 
-int main (int ac, char **av)
-{
-	try { BitcoinExchange	btc(ac, av); }
-	catch (const std::exception& e) { std::cout << "\033[31m" << e.what() << "\033[0m\n"; }
-	return (0);
-}
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <stack>
+
+int RPN(char **argv, std::stack<int> &pile);

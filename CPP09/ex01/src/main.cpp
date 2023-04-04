@@ -5,16 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 13:20:28 by hlevi             #+#    #+#             */
-/*   Updated: 2023/04/04 12:29:36 by hlevi            ###   ########.fr       */
+/*   Created: 2023/04/04 12:28:49 by lyfmeno           #+#    #+#             */
+/*   Updated: 2023/04/04 12:35:14 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/BitcoinExchange.hpp"
+#include "../inc/RPN.hpp"
 
-int main (int ac, char **av)
+int main(int argc, char **argv)
 {
-	try { BitcoinExchange	btc(ac, av); }
-	catch (const std::exception& e) { std::cout << "\033[31m" << e.what() << "\033[0m\n"; }
+	if (argc != 2)
+	{
+		std::cout << "Wrong number of arguments" << std::endl;
+		return (-1);
+	}
+	
+	std::stack<int> pile;
+	RPN(argv, pile);
+	std::cout << pile.top() << std::endl;
 	return (0);
 }

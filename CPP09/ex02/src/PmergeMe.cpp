@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 14:46:47 by hlevi             #+#    #+#             */
-/*   Updated: 2023/04/04 14:50:56 by hlevi            ###   ########.fr       */
+/*   Updated: 2023/04/06 15:04:20 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int exitPrint(const char *str, int ret)
 
 int fillContainers(std::vector<int> &vec, std::list<int> &lst, int argc, char **argv)
 {
-	int tmp;
+	int 		tmp;
+	std::string stmp;
 	for (int i = 1; i < argc; i++)
 	{
+		std::istringstream sss(argv[i]);
 		std::istringstream ss(argv[i]);
-		if (ss >> tmp)
+		ss >> stmp;
+		if (sss >> tmp && stmp.find_first_not_of("0123456789") == std::string::npos)
 		{
 			if (tmp < 0)
 				return (exitPrint("Error: Negative number", -1));

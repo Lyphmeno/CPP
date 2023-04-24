@@ -6,7 +6,7 @@
 /*   By: hlevi <hlevi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 12:28:57 by lyfmeno           #+#    #+#             */
-/*   Updated: 2023/04/04 12:29:34 by hlevi            ###   ########.fr       */
+/*   Updated: 2023/04/24 13:52:27 by hlevi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,7 +250,7 @@ int		BitcoinExchange::parseAll(std::string date, std::string val, double &qty)
 
 	if (!(issQ >> qty) || qty < 0)
 		return (this->err("not a positive integer"));
-	else if (qty > INT_MAX)
+	else if (qty > 1000)
 		return (this->err("too big an integer"));
 	if (issQ >> tmp)
 	{

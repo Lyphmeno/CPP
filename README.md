@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>C++ Modules : <a href="https://github.com/JaeSeoKim/badge42"><img src="https://badge42.vercel.app/api/v2/cljbd5ceo007308mltneinai5/project/3054935" alt="hlevi's 42 CPP Module 09 Score" /></a></h1>
+  <h1>C++ Modules :</a></h1>
   <p>Welcome to the C++ Pool !</p>
   <p>This pool of modules act as an introduction to c++ and <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">OOP</a> (Object Oriented Programming)</p>
   
